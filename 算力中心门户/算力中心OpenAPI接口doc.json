@@ -472,6 +472,177 @@
         }
       }
     },
+    "/ddcoai/sys/v1/ddc/data/searches": {
+      "post": {
+        "tags": [
+          "1-官方DDC"
+        ],
+        "summary": "DDC列表查询",
+        "description": "可根据DDCID、类型、链账户地址、链类型查询",
+        "operationId": "dataSearchesUsingPOST",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestPageInfo«InSearchesDdc»"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfoPage«List«OutSearchesDdc»»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "2147483647"
+        }
+      }
+    },
+    "/ddcoai/sys/v1/ddc/data/searches/details/ddcId": {
+      "post": {
+        "tags": [
+          "1-官方DDC"
+        ],
+        "summary": "查看DDC详情",
+        "description": "根据DDCID查看DDC详情",
+        "operationId": "searchDetailsByDdcIdUsingPOST",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InSearchDetailsByDdcId"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfo«OutSearchDetailsByDdcId»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "2147483647"
+        }
+      }
+    },
+    "/ddcoai/sys/v1/ddc/data/searches/details/tx/record": {
+      "post": {
+        "tags": [
+          "1-官方DDC"
+        ],
+        "summary": "查询DDC流转记录",
+        "description": "查询DDC流转记录",
+        "operationId": "searchDetailsByTxRecordUsingPOST",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestPageInfo«InSearchDetailsByDdcId»"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfoPage«List«OutSearchDetailsByTxRecord»»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "2147483647"
+        }
+      }
+    },
     "/ddcoai/sys/v1/ddc/burn": {
       "post": {
         "tags": [
@@ -862,34 +1033,40 @@
           "ddcId": {
             "type": "string",
             "description": "DDC ID",
-            "example": "100"
+            "example": "100",
+            "refType": null
           },
           "ddcOwner": {
             "type": "string",
             "description": "拥有者链账户地址",
-            "example": "0x00000000000"
+            "example": "0x00000000000",
+            "refType": null
           },
           "ddcType": {
             "type": "integer",
             "description": "DDC类型(721,1155)",
             "format": "int32",
-            "example": 721
+            "example": 721,
+            "refType": null
           },
           "opbChainId": {
             "type": "integer",
             "description": "链标识(调用“开放联盟链框架查询”接口查询)",
             "format": "int64",
-            "example": 9
+            "example": 9,
+            "refType": null
           },
           "securityData": {
             "type": "string",
             "description": "附加数据",
-            "example": "附加数据"
+            "example": "附加数据",
+            "refType": null
           },
           "userTradeCode": {
             "type": "string",
             "description": "用户第三方流水号",
-            "example": "用户第三方流水号"
+            "example": "用户第三方流水号",
+            "refType": null
           }
         }
       },
@@ -909,51 +1086,60 @@
           "ddcDesc": {
             "type": "string",
             "description": "描述",
-            "example": "描述"
+            "example": "描述",
+            "refType": null
           },
           "ddcOwner": {
             "type": "string",
             "description": "链账户地址",
-            "example": "0x0000000000000000000"
+            "example": "0x0000000000000000000",
+            "refType": null
           },
           "ddcPubTotal": {
             "pattern": "^[1-9]\\d*$",
             "type": "string",
             "description": "发行数量：1155必填",
-            "example": "100"
+            "example": "100",
+            "refType": null
           },
           "ddcType": {
             "type": "integer",
             "description": "DDC类型(721,1155)",
             "format": "int32",
-            "example": 721
+            "example": 721,
+            "refType": null
           },
           "imgFileBase64": {
             "type": "string",
             "description": "文件base64编码，支持的格式(png,jpg,jpeg,bmp,gif,doc,docx,pdf)，大小限制2m",
-            "example": "png,iVBORw0KGgoAAAAN...(其中png为文件格式)"
+            "example": "png,iVBORw0KGgoAAAAN...(其中png为文件格式)",
+            "refType": null
           },
           "imgFileName": {
             "pattern": "^[^.]*$",
             "type": "string",
             "description": "图片文件名称(不包含拓展名)",
-            "example": "file1"
+            "example": "file1",
+            "refType": null
           },
           "opbChainId": {
             "type": "integer",
             "description": "链标识(调用“开放联盟链框架查询”接口查询)",
             "format": "int64",
-            "example": 1
+            "example": 1,
+            "refType": null
           },
           "securityData": {
             "type": "string",
             "description": "附加数据",
-            "example": "附加数据"
+            "example": "附加数据",
+            "refType": null
           },
           "userTradeCode": {
             "type": "string",
             "description": "用户第三方流水号",
-            "example": "用户第三方流水号"
+            "example": "用户第三方流水号",
+            "refType": null
           }
         }
       },
@@ -974,45 +1160,53 @@
           "ddcId": {
             "type": "string",
             "description": "DDC ID",
-            "example": "100"
+            "example": "100",
+            "refType": null
           },
           "ddcOwner": {
             "type": "string",
             "description": "拥有者链账户地址",
-            "example": "0x00000000000"
+            "example": "0x00000000000",
+            "refType": null
           },
           "ddcType": {
             "type": "integer",
             "description": "DDC类型(721,1155)",
             "format": "int32",
-            "example": 721
+            "example": 721,
+            "refType": null
           },
           "opbChainId": {
             "type": "integer",
             "description": "链标识(调用“开放联盟链框架查询”接口查询)",
             "format": "int64",
-            "example": 9
+            "example": 9,
+            "refType": null
           },
           "recipientAccount": {
             "type": "string",
             "description": "接收者账户地址",
-            "example": "0x0000000000"
+            "example": "0x0000000000",
+            "refType": null
           },
           "securityData": {
             "type": "string",
             "description": "附加数据",
-            "example": "附加数据"
+            "example": "附加数据",
+            "refType": null
           },
           "sendNumber": {
             "pattern": "^[1-9]\\d*$",
             "type": "string",
             "description": "发送数量",
-            "example": "10"
+            "example": "10",
+            "refType": null
           },
           "userTradeCode": {
             "type": "string",
             "description": "用户第三方流水号",
-            "example": "用户第三方流水号"
+            "example": "用户第三方流水号",
+            "refType": null
           }
         }
       },
@@ -1022,16 +1216,19 @@
         "properties": {
           "tradeCode": {
             "type": "string",
-            "description": "算力交易流水号"
+            "description": "算力交易流水号",
+            "refType": null
           },
           "txType": {
             "type": "integer",
             "description": "交易类型   20=DDC生成  22=DDC流转   23=DDC销毁",
-            "format": "int32"
+            "format": "int32",
+            "refType": null
           },
           "userTradeCode": {
             "type": "string",
-            "description": "用户第三方流水号"
+            "description": "用户第三方流水号",
+            "refType": null
           }
         }
       },
@@ -1052,7 +1249,8 @@
             "type": "number",
             "description": "充值cpu容量（不能为小数）",
             "format": "biginteger",
-            "example": 100
+            "example": 100,
+            "refType": null
           },
           "netPlusValue": {
             "maximum": 999999,
@@ -1060,12 +1258,14 @@
             "type": "number",
             "description": "充值net容量（不能为小数）",
             "format": "biginteger",
-            "example": 100
+            "example": 100,
+            "refType": null
           },
           "opbChainClientAddress": {
             "type": "string",
             "description": "链账户地址",
-            "example": "reddatas1234"
+            "example": "reddatas1234",
+            "refType": null
           },
           "ramPlusValue": {
             "maximum": 999999,
@@ -1073,13 +1273,15 @@
             "type": "number",
             "description": "充值ram容量（不能为小数）",
             "format": "biginteger",
-            "example": 100
+            "example": 100,
+            "refType": null
           },
           "resourceValidDate": {
             "pattern": "^((([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29))$",
             "type": "string",
             "description": "资源有效期",
-            "example": "2022-12-31"
+            "example": "2022-12-31",
+            "refType": null
           }
         }
       },
@@ -1096,18 +1298,21 @@
             "type": "number",
             "description": "算力值：具体算力值对应的能量值请通过接口‘能量值定价查询’接口查询",
             "format": "bigdecimal",
-            "example": 200
+            "example": 200,
+            "refType": null
           },
           "opbChainClientAddress": {
             "type": "string",
             "description": "链账户地址",
-            "example": "0x2b46090ba0c945b69b754a3670e5c79c25abfe9e"
+            "example": "0x2b46090ba0c945b69b754a3670e5c79c25abfe9e",
+            "refType": null
           },
           "opbChainId": {
             "type": "integer",
             "description": "开放联盟链id，可以从‘开放联盟链框架查询’接口查到具体信息",
             "format": "int64",
-            "example": 2
+            "example": 2,
+            "refType": null
           }
         }
       },
@@ -1122,7 +1327,8 @@
             "type": "integer",
             "description": "开放联盟链id",
             "format": "int64",
-            "example": 2
+            "example": 2,
+            "refType": null
           }
         }
       },
@@ -1137,13 +1343,15 @@
           "opbChainClientName": {
             "type": "string",
             "description": "链账户名称",
-            "example": "test1"
+            "example": "test1",
+            "refType": null
           },
           "opbChainId": {
             "type": "integer",
             "description": "链框架id",
             "format": "int64",
-            "example": 9
+            "example": 9,
+            "refType": null
           }
         }
       },
@@ -1154,18 +1362,21 @@
           "opbChainClientAddress": {
             "type": "string",
             "description": "链账户地址",
-            "example": "0xXXX"
+            "example": "0xXXX",
+            "refType": null
           },
           "opbChainClientName": {
             "type": "string",
             "description": "链账户名称",
-            "example": "test1"
+            "example": "test1",
+            "refType": null
           },
           "opbChainId": {
             "type": "integer",
             "description": "链框架id，可以从‘开放联盟链框架查询’接口查到具体信息",
             "format": "int64",
-            "example": 9
+            "example": 9,
+            "refType": null
           }
         }
       },
@@ -1177,13 +1388,78 @@
             "type": "integer",
             "description": "分页：从1开始",
             "format": "int32",
-            "example": 1
+            "example": 1,
+            "refType": null
           },
           "pageSize": {
             "type": "integer",
             "description": "每页大小。",
             "format": "int32",
-            "example": 5
+            "example": 5,
+            "refType": null
+          }
+        }
+      },
+      "InSearchDetailsByDdcId": {
+        "title": "InSearchDetailsByDdcId",
+        "required": [
+          "ddcId",
+          "ddcType",
+          "opbChainId"
+        ],
+        "type": "object",
+        "properties": {
+          "ddcId": {
+            "type": "string",
+            "description": "ddc Id",
+            "example": "1",
+            "refType": null
+          },
+          "ddcType": {
+            "type": "integer",
+            "description": "DDC类型",
+            "format": "int32",
+            "example": 721,
+            "refType": null
+          },
+          "opbChainId": {
+            "type": "integer",
+            "description": "开放联盟链id",
+            "format": "int64",
+            "example": 2,
+            "refType": null
+          }
+        }
+      },
+      "InSearchesDdc": {
+        "title": "InSearchesDdc",
+        "type": "object",
+        "properties": {
+          "ddcId": {
+            "type": "string",
+            "description": "DDC ID",
+            "example": "123",
+            "refType": null
+          },
+          "ddcOwner": {
+            "type": "string",
+            "description": "链账户地址",
+            "example": "0x000000000",
+            "refType": null
+          },
+          "ddcType": {
+            "type": "integer",
+            "description": "DDC类型",
+            "format": "int32",
+            "example": 721,
+            "refType": null
+          },
+          "opbChainId": {
+            "type": "integer",
+            "description": "链标识(调用“开放联盟链框架查询”接口查询)",
+            "format": "int64",
+            "example": 9,
+            "refType": null
           }
         }
       },
@@ -1194,7 +1470,8 @@
           "accessKey": {
             "type": "string",
             "description": "更新后的接入Key",
-            "example": "更新后的接入Key"
+            "example": "更新后的接入Key",
+            "refType": null
           }
         }
       },
@@ -1205,7 +1482,8 @@
           "accessKey": {
             "type": "string",
             "description": "接入key",
-            "example": "a96234234234ea343b233c343423c1960040343242332223326"
+            "example": "a96234234234ea343b233c343423c1960040343242332223326",
+            "refType": null
           }
         }
       },
@@ -1221,17 +1499,20 @@
           "opbChainClientAddress": {
             "type": "string",
             "description": "链账户地址",
-            "example": "0xaaaaaaaaaaaaaaaaaa"
+            "example": "0xaaaaaaaaaaaaaaaaaa",
+            "refType": null
           },
           "privateKey": {
             "type": "string",
             "description": "链账户私钥",
-            "example": "**************"
+            "example": "**************",
+            "refType": null
           },
           "publicKey": {
             "type": "string",
             "description": "链账户公钥",
-            "example": "**************"
+            "example": "**************",
+            "refType": null
           }
         }
       },
@@ -1243,13 +1524,15 @@
             "type": "number",
             "description": "DDC交易价格",
             "format": "bigdecimal",
-            "example": 6
+            "example": 6,
+            "refType": null
           },
           "txType": {
             "type": "integer",
             "description": "DDC交易类型：20=生成 22=流转 23=销毁",
             "format": "int32",
-            "example": 1
+            "example": 1,
+            "refType": null
           }
         }
       },
@@ -1263,7 +1546,8 @@
           "tradeCode": {
             "type": "string",
             "description": "算力交易流水号",
-            "example": "DDC00000000001"
+            "example": "DDC00000000001",
+            "refType": null
           }
         }
       },
@@ -1287,65 +1571,79 @@
           "burnQuantity": {
             "type": "integer",
             "description": "销毁数量",
-            "format": "int64"
+            "format": "int64",
+            "refType": null
           },
           "ddcId": {
             "type": "string",
-            "description": "DdcId"
+            "description": "DdcId",
+            "refType": null
           },
           "ddcOwner": {
             "type": "string",
-            "description": "接收者账户地址"
+            "description": "接收者账户地址",
+            "refType": null
           },
           "ddcType": {
             "type": "integer",
             "description": "DDC类型",
-            "format": "int32"
+            "format": "int32",
+            "refType": null
           },
           "mintQuantity": {
             "type": "integer",
             "description": "生成数量",
-            "format": "int64"
+            "format": "int64",
+            "refType": null
           },
           "opbChainId": {
             "type": "integer",
             "description": "开放联盟链链ID",
-            "format": "int64"
+            "format": "int64",
+            "refType": null
           },
           "opbChainName": {
             "type": "string",
-            "description": "开放联盟链链名称"
+            "description": "开放联盟链链名称",
+            "refType": null
           },
           "sendAccount": {
             "type": "string",
-            "description": "发送者账户地址"
+            "description": "发送者账户地址",
+            "refType": null
           },
           "tradeCode": {
             "type": "string",
-            "description": "帐户交易编号"
+            "description": "帐户交易编号",
+            "refType": null
           },
           "tradeQuantity": {
             "type": "integer",
             "description": "流转数量",
-            "format": "int64"
+            "format": "int64",
+            "refType": null
           },
           "txHash": {
             "type": "string",
-            "description": "交易哈希"
+            "description": "交易哈希",
+            "refType": null
           },
           "txStatus": {
             "type": "integer",
             "description": "交易状态：0=处理中 1=成功 2=失败",
-            "format": "int32"
+            "format": "int32",
+            "refType": null
           },
           "txType": {
             "type": "integer",
             "description": "交易类型   20=DDC生成  22=DDC流转   23=DDC销毁",
-            "format": "int32"
+            "format": "int32",
+            "refType": null
           },
           "userTradeCode": {
             "type": "string",
-            "description": "用户第三方流水号"
+            "description": "用户第三方流水号",
+            "refType": null
           }
         }
       },
@@ -1361,12 +1659,14 @@
             "type": "number",
             "description": "充值成功的能量值",
             "format": "bigdecimal",
-            "example": 20000000
+            "example": 20000000,
+            "refType": null
           },
           "opbChainClientAddress": {
             "type": "string",
             "description": "链账户地址",
-            "example": "0xaaaaaaaaaaaaaaaaaa"
+            "example": "0xaaaaaaaaaaaaaaaaaa",
+            "refType": null
           }
         }
       },
@@ -1384,24 +1684,28 @@
             "type": "number",
             "description": "充值cpu量",
             "format": "biginteger",
-            "example": 100
+            "example": 100,
+            "refType": null
           },
           "netPlusValue": {
             "type": "number",
             "description": "充值net量",
             "format": "biginteger",
-            "example": 100
+            "example": 100,
+            "refType": null
           },
           "opbChainClientAddress": {
             "type": "string",
             "description": "链账户地址",
-            "example": "0xaaaaaaaaaaaaaaaaaa"
+            "example": "0xaaaaaaaaaaaaaaaaaa",
+            "refType": null
           },
           "ramPlusValue": {
             "type": "number",
             "description": "充值ram量",
             "format": "biginteger",
-            "example": 100
+            "example": 100,
+            "refType": null
           }
         }
       },
@@ -1416,7 +1720,8 @@
             "type": "number",
             "description": "1算力值对应的能量值",
             "format": "bigdecimal",
-            "example": 1000000
+            "example": 1000000,
+            "refType": null
           }
         }
       },
@@ -1433,19 +1738,22 @@
             "type": "number",
             "description": "cpu单价 (算力/SYS/天)",
             "format": "double",
-            "example": 0.02
+            "example": 0.02,
+            "refType": null
           },
           "eosNet": {
             "type": "number",
             "description": "net单价 (算力/SYS/天)",
             "format": "double",
-            "example": 0.01
+            "example": 0.01,
+            "refType": null
           },
           "eosRam": {
             "type": "number",
             "description": "ram单价 (算力/KB)",
             "format": "double",
-            "example": 0.04
+            "example": 0.04,
+            "refType": null
           }
         }
       },
@@ -1465,38 +1773,45 @@
           "energyValueBalance": {
             "type": "string",
             "description": "能量值余额（eos：NET:111111bytes,CPU:111111us,RAM:11111bytes）",
-            "example": "20000000"
+            "example": "20000000",
+            "refType": null
           },
           "gasLastUpdateTime": {
             "type": "string",
             "description": "能量值/资源更新时间",
-            "format": "date-time"
+            "format": "date-time",
+            "refType": null
           },
           "opbChainAccountStatus": {
             "type": "integer",
             "description": "链账户状态（已启用/已冻结）",
             "format": "int32",
-            "example": 2
+            "example": 2,
+            "refType": null
           },
           "opbChainClientAddress": {
             "type": "string",
             "description": "链账户地址",
-            "example": "0xaaaaaaaaaaaaaaaaaa"
+            "example": "0xaaaaaaaaaaaaaaaaaa",
+            "refType": null
           },
           "opbChainClientCode": {
             "type": "string",
             "description": "链账户code",
-            "example": "wertyuiopoiuytr"
+            "example": "wertyuiopoiuytr",
+            "refType": null
           },
           "opbChainClientName": {
             "type": "string",
             "description": "链账户名称",
-            "example": "test1"
+            "example": "test1",
+            "refType": null
           },
           "opbChainName": {
             "type": "string",
             "description": "链名称",
-            "example": "0xaaaaaaaaaaaaaaaaaa"
+            "example": "0xaaaaaaaaaaaaaaaaaa",
+            "refType": null
           }
         }
       },
@@ -1513,25 +1828,236 @@
         "properties": {
           "opbAlgorithmName": {
             "type": "string",
-            "description": "开放联盟链链算法名称"
+            "description": "开放联盟链链算法名称",
+            "refType": null
           },
           "opbAlgorithmType": {
             "type": "integer",
             "description": "开放联盟链链算法类型",
-            "format": "int32"
+            "format": "int32",
+            "refType": null
           },
           "opbChainId": {
             "type": "integer",
             "description": "开放联盟链链ID",
-            "format": "int64"
+            "format": "int64",
+            "refType": null
           },
           "opbChainName": {
             "type": "string",
-            "description": "开放联盟链链名称"
+            "description": "开放联盟链链名称",
+            "refType": null
           },
           "opbChainType": {
             "type": "string",
-            "description": "开放联盟链链类型"
+            "description": "开放联盟链链类型",
+            "refType": null
+          }
+        }
+      },
+      "OutSearchDetailsByDdcId": {
+        "title": "OutSearchDetailsByDdcId",
+        "required": [
+          "ddcGenerateState",
+          "ddcId",
+          "ddcState",
+          "ddcType",
+          "ddcUri",
+          "generateDate",
+          "opbChainName",
+          "opsMgrState"
+        ],
+        "type": "object",
+        "properties": {
+          "ddcDesc": {
+            "type": "string",
+            "description": "DDC描述",
+            "example": "描述",
+            "refType": null
+          },
+          "ddcGenerateState": {
+            "type": "integer",
+            "description": "DDC生成状态  1=生成中 5=正常 10=生成失败 ",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "ddcId": {
+            "type": "string",
+            "description": "DDC ID",
+            "example": "122",
+            "refType": null
+          },
+          "ddcState": {
+            "type": "integer",
+            "description": "DDC状态 1=正常  4=销毁中 5=销毁  20=发送中 25=发送失败 ",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "ddcType": {
+            "type": "integer",
+            "description": "DDC 类型",
+            "format": "int32",
+            "example": 721,
+            "refType": null
+          },
+          "ddcUri": {
+            "type": "string",
+            "description": "ddcuri",
+            "refType": null
+          },
+          "generateDate": {
+            "type": "string",
+            "description": "生成时间",
+            "example": "2022-11-09 10:00:00",
+            "refType": null
+          },
+          "opbChainName": {
+            "type": "string",
+            "description": "框架名称",
+            "example": "泰安链",
+            "refType": null
+          },
+          "opsMgrState": {
+            "type": "integer",
+            "description": "运营冻结状态   1=冻结  5=正常（解冻）",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "publishQuantity": {
+            "type": "integer",
+            "description": "发行量（只有1155类型有值）",
+            "format": "int64",
+            "example": 100,
+            "refType": null
+          }
+        }
+      },
+      "OutSearchDetailsByTxRecord": {
+        "title": "OutSearchDetailsByTxRecord",
+        "required": [
+          "blockHeight",
+          "createDate",
+          "receiveAccount",
+          "sendAccount",
+          "txHash",
+          "txType"
+        ],
+        "type": "object",
+        "properties": {
+          "blockHeight": {
+            "type": "integer",
+            "description": "块高",
+            "format": "int64",
+            "example": 11111,
+            "refType": null
+          },
+          "createDate": {
+            "type": "string",
+            "description": "交易时间",
+            "example": "2022-11-09 10:00:00",
+            "refType": null
+          },
+          "receiveAccount": {
+            "type": "string",
+            "description": "接收者账户",
+            "example": "0x0000000000000",
+            "refType": null
+          },
+          "sendAccount": {
+            "type": "string",
+            "description": "发送者账户",
+            "example": "0x0000000000000",
+            "refType": null
+          },
+          "txHash": {
+            "type": "string",
+            "description": "交易hash",
+            "example": "0x0000000000000",
+            "refType": null
+          },
+          "txType": {
+            "type": "integer",
+            "description": "交易类型：20=DDC生成  22=DDC流转   23=DDC销毁  ",
+            "format": "int32",
+            "example": 20,
+            "refType": null
+          }
+        }
+      },
+      "OutSearchesDdc": {
+        "title": "OutSearchesDdc",
+        "required": [
+          "ddcGenerateState",
+          "ddcOwner",
+          "ddcState",
+          "ddcType",
+          "opbChainId",
+          "opsMgrState",
+          "platformDdcCode"
+        ],
+        "type": "object",
+        "properties": {
+          "ddcGenerateState": {
+            "type": "integer",
+            "description": "DDC生成状态  1=生成中 5=正常 10=生成失败 ",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "ddcId": {
+            "type": "string",
+            "description": "DDC ID",
+            "example": "123",
+            "refType": null
+          },
+          "ddcOwner": {
+            "type": "string",
+            "description": "链账户地址",
+            "example": "0x0000000",
+            "refType": null
+          },
+          "ddcState": {
+            "type": "integer",
+            "description": "DDC状态 1=正常  4=销毁中 5=销毁  20=发送中 25=发送失败 ",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "ddcType": {
+            "type": "integer",
+            "description": "DDC类型",
+            "format": "int32",
+            "example": 721,
+            "refType": null
+          },
+          "generateDate": {
+            "type": "string",
+            "description": "生成时间",
+            "example": "2022-11-09 11:00:00",
+            "refType": null
+          },
+          "opbChainId": {
+            "type": "integer",
+            "description": "链标识",
+            "format": "int64",
+            "example": 4,
+            "refType": null
+          },
+          "opsMgrState": {
+            "type": "integer",
+            "description": "运营冻结状态   1=冻结  5=正常（解冻）",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "platformDdcCode": {
+            "type": "string",
+            "description": "DDC CODE",
+            "example": "SSSSSSS",
+            "refType": null
           }
         }
       },
@@ -1546,7 +2072,8 @@
             "type": "number",
             "description": "账户余额：算力值",
             "format": "bigdecimal",
-            "example": 10
+            "example": 10,
+            "refType": null
           }
         }
       },
@@ -1555,26 +2082,32 @@
         "type": "object",
         "properties": {
           "firstPage": {
-            "type": "boolean"
+            "type": "boolean",
+            "refType": null
           },
           "lastPage": {
-            "type": "boolean"
+            "type": "boolean",
+            "refType": null
           },
           "pageNum": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "refType": null
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "refType": null
           },
           "pages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "refType": null
           },
           "total": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "refType": null
           }
         }
       },
@@ -1588,11 +2121,53 @@
         "properties": {
           "data": {
             "description": "请求报文体，不能为null，可以为空对象",
-            "$ref": "#/components/schemas/InOpbChainAccountSearches"
+            "$ref": "#/components/schemas/InOpbChainAccountSearches",
+            "refType": "InOpbChainAccountSearches"
           },
           "page": {
             "description": "分页入参",
-            "$ref": "#/components/schemas/InPage"
+            "$ref": "#/components/schemas/InPage",
+            "refType": "InPage"
+          }
+        }
+      },
+      "RequestPageInfo«InSearchDetailsByDdcId»": {
+        "title": "RequestPageInfo«InSearchDetailsByDdcId»",
+        "required": [
+          "data",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "请求报文体，不能为null，可以为空对象",
+            "$ref": "#/components/schemas/InSearchDetailsByDdcId",
+            "refType": "InSearchDetailsByDdcId"
+          },
+          "page": {
+            "description": "分页入参",
+            "$ref": "#/components/schemas/InPage",
+            "refType": "InPage"
+          }
+        }
+      },
+      "RequestPageInfo«InSearchesDdc»": {
+        "title": "RequestPageInfo«InSearchesDdc»",
+        "required": [
+          "data",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "请求报文体，不能为null，可以为空对象",
+            "$ref": "#/components/schemas/InSearchesDdc",
+            "refType": "InSearchesDdc"
+          },
+          "page": {
+            "description": "分页入参",
+            "$ref": "#/components/schemas/InPage",
+            "refType": "InPage"
           }
         }
       },
@@ -1615,6 +2190,78 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OutOpbChainAccountSearches"
+            }
+          },
+          "errorLogCode": {
+            "type": "string",
+            "description": "此标记同时写入到日志文件中，方便查找",
+            "example": "0"
+          },
+          "message": {
+            "type": "string",
+            "description": "都是消息编码，前端自行国际化处理",
+            "example": "0"
+          },
+          "resultPageInfo": {
+            "$ref": "#/components/schemas/PageInfo"
+          }
+        }
+      },
+      "ResultInfoPage«List«OutSearchDetailsByTxRecord»»": {
+        "title": "ResultInfoPage«List«OutSearchDetailsByTxRecord»»",
+        "required": [
+          "code",
+          "errorLogCode",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "成功：0，失败：-1",
+            "format": "int32",
+            "example": 0
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OutSearchDetailsByTxRecord"
+            }
+          },
+          "errorLogCode": {
+            "type": "string",
+            "description": "此标记同时写入到日志文件中，方便查找",
+            "example": "0"
+          },
+          "message": {
+            "type": "string",
+            "description": "都是消息编码，前端自行国际化处理",
+            "example": "0"
+          },
+          "resultPageInfo": {
+            "$ref": "#/components/schemas/PageInfo"
+          }
+        }
+      },
+      "ResultInfoPage«List«OutSearchesDdc»»": {
+        "title": "ResultInfoPage«List«OutSearchesDdc»»",
+        "required": [
+          "code",
+          "errorLogCode",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "成功：0，失败：-1",
+            "format": "int32",
+            "example": 0
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OutSearchesDdc"
             }
           },
           "errorLogCode": {
@@ -1971,6 +2618,36 @@
           }
         }
       },
+      "ResultInfo«OutSearchDetailsByDdcId»": {
+        "title": "ResultInfo«OutSearchDetailsByDdcId»",
+        "required": [
+          "code",
+          "errorLogCode",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "成功：0，失败：-1",
+            "format": "int32",
+            "example": 0
+          },
+          "data": {
+            "$ref": "#/components/schemas/OutSearchDetailsByDdcId"
+          },
+          "errorLogCode": {
+            "type": "string",
+            "description": "此标记同时写入到日志文件中，方便查找",
+            "example": "0"
+          },
+          "message": {
+            "type": "string",
+            "description": "都是消息编码，前端自行国际化处理",
+            "example": "0"
+          }
+        }
+      },
       "ResultInfo«OutUserAccountInfoSearch»": {
         "title": "ResultInfo«OutUserAccountInfoSearch»",
         "required": [
@@ -2010,7 +2687,7 @@
         "children": [
           {
             "title": "0. 响应异常消息编码",
-            "content": "# 0. 响应异常消息编码\r\n\r\n| 编码                   | 说明                                |\r\n|----------------------|-----------------------------------|\r\n| MSG_20010005         | apitoken 授权认证失败                   |\r\n| MSG_10051001         | 当前交易开放联盟链框架在算力中心不支持               |\r\n| MSG_10051002         | 中移资源参数不能为空                        |\r\n| MSG_10051007         | 链账户不存在                            |\r\n| MSG_10051008         | 链账户已锁定                            |\r\n| MSG_10051009         | 链账户不是启用状态                         |\r\n| MSG_10051010         | 创建的链账户地址在官方ddc中尚未开通ddc，无法做官方ddc交易 |\r\n| MSG_10051011         | 查询链账户余额为空                         |\r\n| MSG_10051012         | 链账户余额不足                           |\r\n| MSG_10051013         | 充值中移链资源扣款异常                       |\r\n| MSG_10051014         | 充值能量值扣款异常                         |\r\n| MSG_10051015         | 调用openapi充值能量值失败                  |\r\n| MSG_10051018         | 创建链账户服务内部出错                       |\r\n| MSG_10051019         | 能量值数值错误                           |\r\n| MSG_10051020         | 算力值数值错误                           |\r\n| MSG_10051022         | 该条链未配置算力值能量值比例                    |\r\n| MSG_10051023         | 未匹配到当前时间的算力值/gas比例生效记录            |\r\n| MSG_10051024         | 该条链未配置算力值资源比例                     |\r\n| MSG_10051025         | 未匹配到当前时间的算力值/资源比例生效记录             |\r\n| MSG_10051026         | 查询算力值/能量值比例异常                     |\r\n| MSG_10051027         | 查询算力值/资源比例异常                      |\r\n| MSG_10051028         | 资源有效期必须大于1天                       |\r\n| MSG_10051029         | 调用openapi分配资源失败                   |\r\n| MSG_10051030         | 链类型错误链类型错误                        |\r\n| MSG_10051031         | 中移链链账户不符合规则                       |\r\n| MSG_10051032         | 算力值必须大于0                          |\r\n| MSG_10051033         | 资源充值容量必须大于0                       |\r\n| MSG_10051035         | 链账户名称已存在                          |\r\n| MSG_10051036         | gas充值退款异常                         |\r\n| MSG_10051037         | 资源充值退款异常                          |\r\n| MSG_10051038         | 能量值充值失败                           |\r\n| MSG_10051039         | 资源充值失败                            |\r\n| MSG_10051041         | 日期格式错误                            |\r\n| MSG_10053001         | DDC生成失败                           |\r\n| MSG_10053002         | DDC发送失败                           |\r\n| MSG_10053003         | DDC销毁失败                           |\r\n| MSG_10028041         | 接入key同步到节点网关失败                    |\r\n| MSG_10028042         | 更新key同步到节点网关失败                    |\r\n| MSG_200BALANCE_SHORT | 算力值余额不足                           | \r\n| MSG_10021051         | 算力交易流水号不正确                        |\r\n| MSG_10028061         | 文件业务类型不存在                         |\r\n| MSG_10028062         | 文件格式不能为空                          |\r\n| MSG_10028063         | 文件内容不能为空                          |\r\n| MSG_10028064         | 文件超过规定大小                          |\r\n| MSG_10028065         | 文件格式有误                            |\r\n| MSG_40100000         | 无接口访问权限                           |\r\n| MSG_10053010         | DDC当前状态不可发送                       |\r\n| MSG_10053011         | DDC当前状态不可销毁                       |\r\n| MSG_10053012         | 第三方流水号重复                       |"
+            "content": "# 0. 响应异常消息编码\r\n\r\n| 编码                   | 说明                              |\r\n|----------------------|---------------------------------|\r\n| MSG_20010005         | apitoken 授权认证失败                 |\r\n| MSG_10051001         | 当前交易开放联盟链框架在算力中心不支持             |\r\n| MSG_10051002         | 中移资源参数不能为空                      |\r\n| MSG_10051007         | 链账户不存在                          |\r\n| MSG_10051008         | 链账户已锁定                          |\r\n| MSG_10051009         | 链账户不是启用状态                       |\r\n| MSG_10051010         | 创建的链账户地址在官方ddc中尚未开通ddc，无法做官方ddc交易 |\r\n| MSG_10051011         | 查询链账户余额为空                       |\r\n| MSG_10051012         | 链账户余额不足                         |\r\n| MSG_10051013         | 充值中移链资源扣款异常                     |\r\n| MSG_10051014         | 充值能量值扣款异常                       |\r\n| MSG_10051015         | 调用openapi充值能量值失败                |\r\n| MSG_10051018         | 创建链账户服务内部出错                     |\r\n| MSG_10051019         | 能量值数值错误                         |\r\n| MSG_10051020         | 算力值数值错误                         |\r\n| MSG_10051022         | 该条链未配置算力值能量值比例                  |\r\n| MSG_10051023         | 未匹配到当前时间的算力值/gas比例生效记录          |\r\n| MSG_10051024         | 该条链未配置算力值资源比例                   |\r\n| MSG_10051025         | 未匹配到当前时间的算力值/资源比例生效记录           |\r\n| MSG_10051026         | 查询算力值/能量值比例异常                   |\r\n| MSG_10051027         | 查询算力值/资源比例异常                    |\r\n| MSG_10051028         | 资源有效期必须大于1天                     |\r\n| MSG_10051029         | 调用openapi分配资源失败                 |\r\n| MSG_10051030         | 链类型错误链类型错误                      |\r\n| MSG_10051031         | 中移链链账户不符合规则                     |\r\n| MSG_10051032         | 算力值必须大于0                        |\r\n| MSG_10051033         | 资源充值容量必须大于0                     |\r\n| MSG_10051035         | 链账户名称已存在                        |\r\n| MSG_10051036         | gas充值退款异常                       |\r\n| MSG_10051037         | 资源充值退款异常                        |\r\n| MSG_10051038         | 能量值充值失败                         |\r\n| MSG_10051039         | 资源充值失败                          |\r\n| MSG_10051041         | 日期格式错误                          |\r\n| MSG_10051043         | 平台方账户余额不足                       |\r\n| MSG_10051045         | 用户key已被禁用                        |\r\n| MSG_10053000         | DDC查询为空                         |\r\n| MSG_10053001         | DDC生成失败                         |\r\n| MSG_10053002         | DDC发送失败                         |\r\n| MSG_10053003         | DDC销毁失败                         |\r\n| MSG_10028041         | 接入key同步到节点网关失败                  |\r\n| MSG_10028042         | 更新key同步到节点网关失败                  |\r\n| MSG_200BALANCE_SHORT | 算力值余额不足                         | \r\n| MSG_10021051         | 算力交易流水号不正确                      |\r\n| MSG_10028061         | 文件业务类型不存在                       |\r\n| MSG_10028062         | 文件格式不能为空                        |\r\n| MSG_10028063         | 文件内容不能为空                        |\r\n| MSG_10028064         | 文件超过规定大小                        |\r\n| MSG_10028065         | 文件格式有误                          |\r\n| MSG_40100000         | 无接口访问权限                         |\r\n| MSG_10053010         | DDC当前状态不可发送                     |\r\n| MSG_10053011         | DDC当前状态不可销毁                     |\r\n| MSG_10053012         | 第三方流水号重复                        |\r\n| MSG_10021072         | 算力中心用户无访问权限                        |\r\n| MSG_10021073         | 非算力中心用户，无访问权限                        |\r\n"
           },
           {
             "title": "1. API Changelog ",

@@ -371,6 +371,346 @@
 ```
 
 
+## DDC列表查询
+
+
+**接口地址**:`/ddcoai/sys/v1/ddc/data/searches`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>可根据DDCID、类型、链账户地址、链类型查询</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "data": {
+    "ddcId": "123",
+    "ddcOwner": "0x000000000",
+    "ddcType": 721,
+    "opbChainId": 9
+  },
+  "page": {
+    "pageNum": 1,
+    "pageSize": 5
+  }
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+|requestPageInfo«InSearchesDdc»|RequestPageInfo«InSearchesDdc»|body|true|RequestPageInfo«InSearchesDdc»|RequestPageInfo«InSearchesDdc»|
+|&emsp;&emsp;data|请求报文体，不能为null，可以为空对象||true|InSearchesDdc|InSearchesDdc|
+|&emsp;&emsp;&emsp;&emsp;ddcId|DDC ID||false|string||
+|&emsp;&emsp;&emsp;&emsp;ddcOwner|链账户地址||false|string||
+|&emsp;&emsp;&emsp;&emsp;ddcType|DDC类型||false|integer||
+|&emsp;&emsp;&emsp;&emsp;opbChainId|链标识(调用“开放联盟链框架查询”接口查询)||false|integer||
+|&emsp;&emsp;page|分页入参||true|InPage|InPage|
+|&emsp;&emsp;&emsp;&emsp;pageNum|分页：从1开始||false|integer||
+|&emsp;&emsp;&emsp;&emsp;pageSize|每页大小。||false|integer||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfoPage«List«OutSearchesDdc»»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||array|OutSearchesDdc|
+|&emsp;&emsp;ddcGenerateState|DDC生成状态  1=生成中 5=正常 10=生成失败 |integer(int32)||
+|&emsp;&emsp;ddcId|DDC ID|string||
+|&emsp;&emsp;ddcOwner|链账户地址|string||
+|&emsp;&emsp;ddcState|DDC状态 1=正常  4=销毁中 5=销毁  20=发送中 25=发送失败 |integer(int32)||
+|&emsp;&emsp;ddcType|DDC类型|integer(int32)||
+|&emsp;&emsp;generateDate|生成时间|string||
+|&emsp;&emsp;opbChainId|链标识|integer(int64)||
+|&emsp;&emsp;opsMgrState|运营冻结状态   1=冻结  5=正常（解冻）|integer(int32)||
+|&emsp;&emsp;platformDdcCode|DDC CODE|string||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+|resultPageInfo||PageInfo|PageInfo|
+|&emsp;&emsp;firstPage||boolean||
+|&emsp;&emsp;lastPage||boolean||
+|&emsp;&emsp;pageNum||integer(int32)||
+|&emsp;&emsp;pageSize||integer(int32)||
+|&emsp;&emsp;pages||integer(int32)||
+|&emsp;&emsp;total||integer(int64)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": [
+		{
+			"ddcGenerateState": 1,
+			"ddcId": "123",
+			"ddcOwner": "0x0000000",
+			"ddcState": 1,
+			"ddcType": 721,
+			"generateDate": "2022-11-09 11:00:00",
+			"opbChainId": 4,
+			"opsMgrState": 1,
+			"platformDdcCode": "SSSSSSS"
+		}
+	],
+	"errorLogCode": "0",
+	"message": "0",
+	"resultPageInfo": {
+		"firstPage": true,
+		"lastPage": true,
+		"pageNum": 0,
+		"pageSize": 0,
+		"pages": 0,
+		"total": 0
+	}
+}
+```
+
+
+## 查看DDC详情
+
+
+**接口地址**:`/ddcoai/sys/v1/ddc/data/searches/details/ddcId`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>根据DDCID查看DDC详情</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "ddcId": "1",
+  "ddcType": 721,
+  "opbChainId": 2
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+|inSearchDetailsByDdcId|InSearchDetailsByDdcId|body|true|InSearchDetailsByDdcId|InSearchDetailsByDdcId|
+|&emsp;&emsp;ddcId|ddc Id||true|string||
+|&emsp;&emsp;ddcType|DDC类型||true|integer(int32)||
+|&emsp;&emsp;opbChainId|开放联盟链id||true|integer(int64)||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfo«OutSearchDetailsByDdcId»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||OutSearchDetailsByDdcId|OutSearchDetailsByDdcId|
+|&emsp;&emsp;ddcDesc|DDC描述|string||
+|&emsp;&emsp;ddcGenerateState|DDC生成状态  1=生成中 5=正常 10=生成失败 |integer(int32)||
+|&emsp;&emsp;ddcId|DDC ID|string||
+|&emsp;&emsp;ddcState|DDC状态 1=正常  4=销毁中 5=销毁  20=发送中 25=发送失败 |integer(int32)||
+|&emsp;&emsp;ddcType|DDC 类型|integer(int32)||
+|&emsp;&emsp;ddcUri|ddcuri|string||
+|&emsp;&emsp;generateDate|生成时间|string||
+|&emsp;&emsp;opbChainName|框架名称|string||
+|&emsp;&emsp;opsMgrState|运营冻结状态   1=冻结  5=正常（解冻）|integer(int32)||
+|&emsp;&emsp;publishQuantity|发行量（只有1155类型有值）|integer(int64)||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": {
+		"ddcDesc": "描述",
+		"ddcGenerateState": 1,
+		"ddcId": "122",
+		"ddcState": 1,
+		"ddcType": 721,
+		"ddcUri": "",
+		"generateDate": "2022-11-09 10:00:00",
+		"opbChainName": "泰安链",
+		"opsMgrState": 1,
+		"publishQuantity": 100
+	},
+	"errorLogCode": "0",
+	"message": "0"
+}
+```
+
+
+## 查询DDC流转记录
+
+
+**接口地址**:`/ddcoai/sys/v1/ddc/data/searches/details/tx/record`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询DDC流转记录</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "data": {
+    "ddcId": "1",
+    "ddcType": 721,
+    "opbChainId": 2
+  },
+  "page": {
+    "pageNum": 1,
+    "pageSize": 5
+  }
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+|requestPageInfo«InSearchDetailsByDdcId»|RequestPageInfo«InSearchDetailsByDdcId»|body|true|RequestPageInfo«InSearchDetailsByDdcId»|RequestPageInfo«InSearchDetailsByDdcId»|
+|&emsp;&emsp;data|请求报文体，不能为null，可以为空对象||true|InSearchDetailsByDdcId|InSearchDetailsByDdcId|
+|&emsp;&emsp;&emsp;&emsp;ddcId|ddc Id||true|string||
+|&emsp;&emsp;&emsp;&emsp;ddcType|DDC类型||true|integer||
+|&emsp;&emsp;&emsp;&emsp;opbChainId|开放联盟链id||true|integer||
+|&emsp;&emsp;page|分页入参||true|InPage|InPage|
+|&emsp;&emsp;&emsp;&emsp;pageNum|分页：从1开始||false|integer||
+|&emsp;&emsp;&emsp;&emsp;pageSize|每页大小。||false|integer||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfoPage«List«OutSearchDetailsByTxRecord»»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||array|OutSearchDetailsByTxRecord|
+|&emsp;&emsp;blockHeight|块高|integer(int64)||
+|&emsp;&emsp;createDate|交易时间|string||
+|&emsp;&emsp;receiveAccount|接收者账户|string||
+|&emsp;&emsp;sendAccount|发送者账户|string||
+|&emsp;&emsp;txHash|交易hash|string||
+|&emsp;&emsp;txType|交易类型：20=DDC生成  22=DDC流转   23=DDC销毁  |integer(int32)||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+|resultPageInfo||PageInfo|PageInfo|
+|&emsp;&emsp;firstPage||boolean||
+|&emsp;&emsp;lastPage||boolean||
+|&emsp;&emsp;pageNum||integer(int32)||
+|&emsp;&emsp;pageSize||integer(int32)||
+|&emsp;&emsp;pages||integer(int32)||
+|&emsp;&emsp;total||integer(int64)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": [
+		{
+			"blockHeight": 11111,
+			"createDate": "2022-11-09 10:00:00",
+			"receiveAccount": "0x0000000000000",
+			"sendAccount": "0x0000000000000",
+			"txHash": "0x0000000000000",
+			"txType": 20
+		}
+	],
+	"errorLogCode": "0",
+	"message": "0",
+	"resultPageInfo": {
+		"firstPage": true,
+		"lastPage": true,
+		"pageNum": 0,
+		"pageSize": 0,
+		"pages": 0,
+		"total": 0
+	}
+}
+```
+
+
 ## DDC交易定价查询
 
 
@@ -1274,57 +1614,63 @@
 ### 0. 响应异常消息编码
 # 0. 响应异常消息编码
 
-| 编码                   | 说明                                |
-|----------------------|-----------------------------------|
-| MSG_20010005         | apitoken 授权认证失败                   |
-| MSG_10051001         | 当前交易开放联盟链框架在算力中心不支持               |
-| MSG_10051002         | 中移资源参数不能为空                        |
-| MSG_10051007         | 链账户不存在                            |
-| MSG_10051008         | 链账户已锁定                            |
-| MSG_10051009         | 链账户不是启用状态                         |
+| 编码                   | 说明                              |
+|----------------------|---------------------------------|
+| MSG_20010005         | apitoken 授权认证失败                 |
+| MSG_10051001         | 当前交易开放联盟链框架在算力中心不支持             |
+| MSG_10051002         | 中移资源参数不能为空                      |
+| MSG_10051007         | 链账户不存在                          |
+| MSG_10051008         | 链账户已锁定                          |
+| MSG_10051009         | 链账户不是启用状态                       |
 | MSG_10051010         | 创建的链账户地址在官方ddc中尚未开通ddc，无法做官方ddc交易 |
-| MSG_10051011         | 查询链账户余额为空                         |
-| MSG_10051012         | 链账户余额不足                           |
-| MSG_10051013         | 充值中移链资源扣款异常                       |
-| MSG_10051014         | 充值能量值扣款异常                         |
-| MSG_10051015         | 调用openapi充值能量值失败                  |
-| MSG_10051018         | 创建链账户服务内部出错                       |
-| MSG_10051019         | 能量值数值错误                           |
-| MSG_10051020         | 算力值数值错误                           |
-| MSG_10051022         | 该条链未配置算力值能量值比例                    |
-| MSG_10051023         | 未匹配到当前时间的算力值/gas比例生效记录            |
-| MSG_10051024         | 该条链未配置算力值资源比例                     |
-| MSG_10051025         | 未匹配到当前时间的算力值/资源比例生效记录             |
-| MSG_10051026         | 查询算力值/能量值比例异常                     |
-| MSG_10051027         | 查询算力值/资源比例异常                      |
-| MSG_10051028         | 资源有效期必须大于1天                       |
-| MSG_10051029         | 调用openapi分配资源失败                   |
-| MSG_10051030         | 链类型错误链类型错误                        |
-| MSG_10051031         | 中移链链账户不符合规则                       |
-| MSG_10051032         | 算力值必须大于0                          |
-| MSG_10051033         | 资源充值容量必须大于0                       |
-| MSG_10051035         | 链账户名称已存在                          |
-| MSG_10051036         | gas充值退款异常                         |
-| MSG_10051037         | 资源充值退款异常                          |
-| MSG_10051038         | 能量值充值失败                           |
-| MSG_10051039         | 资源充值失败                            |
-| MSG_10051041         | 日期格式错误                            |
-| MSG_10053001         | DDC生成失败                           |
-| MSG_10053002         | DDC发送失败                           |
-| MSG_10053003         | DDC销毁失败                           |
-| MSG_10028041         | 接入key同步到节点网关失败                    |
-| MSG_10028042         | 更新key同步到节点网关失败                    |
-| MSG_200BALANCE_SHORT | 算力值余额不足                           | 
-| MSG_10021051         | 算力交易流水号不正确                        |
-| MSG_10028061         | 文件业务类型不存在                         |
-| MSG_10028062         | 文件格式不能为空                          |
-| MSG_10028063         | 文件内容不能为空                          |
-| MSG_10028064         | 文件超过规定大小                          |
-| MSG_10028065         | 文件格式有误                            |
-| MSG_40100000         | 无接口访问权限                           |
-| MSG_10053010         | DDC当前状态不可发送                       |
-| MSG_10053011         | DDC当前状态不可销毁                       |
-| MSG_10053012         | 第三方流水号重复                       |
+| MSG_10051011         | 查询链账户余额为空                       |
+| MSG_10051012         | 链账户余额不足                         |
+| MSG_10051013         | 充值中移链资源扣款异常                     |
+| MSG_10051014         | 充值能量值扣款异常                       |
+| MSG_10051015         | 调用openapi充值能量值失败                |
+| MSG_10051018         | 创建链账户服务内部出错                     |
+| MSG_10051019         | 能量值数值错误                         |
+| MSG_10051020         | 算力值数值错误                         |
+| MSG_10051022         | 该条链未配置算力值能量值比例                  |
+| MSG_10051023         | 未匹配到当前时间的算力值/gas比例生效记录          |
+| MSG_10051024         | 该条链未配置算力值资源比例                   |
+| MSG_10051025         | 未匹配到当前时间的算力值/资源比例生效记录           |
+| MSG_10051026         | 查询算力值/能量值比例异常                   |
+| MSG_10051027         | 查询算力值/资源比例异常                    |
+| MSG_10051028         | 资源有效期必须大于1天                     |
+| MSG_10051029         | 调用openapi分配资源失败                 |
+| MSG_10051030         | 链类型错误链类型错误                      |
+| MSG_10051031         | 中移链链账户不符合规则                     |
+| MSG_10051032         | 算力值必须大于0                        |
+| MSG_10051033         | 资源充值容量必须大于0                     |
+| MSG_10051035         | 链账户名称已存在                        |
+| MSG_10051036         | gas充值退款异常                       |
+| MSG_10051037         | 资源充值退款异常                        |
+| MSG_10051038         | 能量值充值失败                         |
+| MSG_10051039         | 资源充值失败                          |
+| MSG_10051041         | 日期格式错误                          |
+| MSG_10051043         | 平台方账户余额不足                       |
+| MSG_10051045         | 用户key已被禁用                        |
+| MSG_10053000         | DDC查询为空                         |
+| MSG_10053001         | DDC生成失败                         |
+| MSG_10053002         | DDC发送失败                         |
+| MSG_10053003         | DDC销毁失败                         |
+| MSG_10028041         | 接入key同步到节点网关失败                  |
+| MSG_10028042         | 更新key同步到节点网关失败                  |
+| MSG_200BALANCE_SHORT | 算力值余额不足                         | 
+| MSG_10021051         | 算力交易流水号不正确                      |
+| MSG_10028061         | 文件业务类型不存在                       |
+| MSG_10028062         | 文件格式不能为空                        |
+| MSG_10028063         | 文件内容不能为空                        |
+| MSG_10028064         | 文件超过规定大小                        |
+| MSG_10028065         | 文件格式有误                          |
+| MSG_40100000         | 无接口访问权限                         |
+| MSG_10053010         | DDC当前状态不可发送                     |
+| MSG_10053011         | DDC当前状态不可销毁                     |
+| MSG_10053012         | 第三方流水号重复                        |
+| MSG_10021072         | 算力中心用户无访问权限                        |
+| MSG_10021073         | 非算力中心用户，无访问权限                        |
+
 ### 1. API Changelog 
 # 1. API Changelog 
 
