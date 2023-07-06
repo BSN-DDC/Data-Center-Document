@@ -10,6 +10,7 @@
 | --------------------- | ----------------------- | ----------------------- | ----------------------------- |
 | 2023-2-14             | V1.0                    | 周晓明                  | 编写文件大纲及示例            |
 | 2023-2-14             | V1.1                    | 张云龙                  | 文档填充                      |
+| 2023-7-6              | V1.2                    | 张云龙                  | 新增武汉链配置                |
 
 # 三、配置
 
@@ -85,6 +86,8 @@ kong-gateway-config.yml 部分配置
 | irisnet-rest                   | 文昌链节点 IP:1317       | 文昌链<strong> </strong><strong>rest</strong><strong> </strong>接口 |
 | irisnet-rpc                    | 文昌链节点 IP:26657      | 文昌链 <strong>rpc</strong><strong> </strong>接口                   |
 | fisco-rpc                      | 泰安链节点 IP:8545       | 泰安链 <strong>rpc</strong><strong> </strong>接口                   |
+| eth-rpc                        | 武汉链节点 IP:20006      | 武汉链 <strong>rpc</strong><strong> </strong>接口                   |
+| eth-ws                         | 武汉链节点 IP:8556       | 武汉链 <strong>ws </strong>接口                                     |
 
 Upstream 配置
 
