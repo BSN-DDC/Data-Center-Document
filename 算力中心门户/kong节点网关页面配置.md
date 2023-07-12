@@ -135,9 +135,10 @@ kong 网关官方开发者文档地址：[https://docs.konghq.com/gateway/2.8.x/
 | 文昌链 evmrpc 接口    |                   | http://[域名:端口]:18601/api/[用户接入 Key]/irisnet/evmrpc/                    |
 | 文昌链 ws 接口        |                   | ws://[域名:端口]:18602/api/[用户接入 Key]/irisnet/ws/                          |
 | 文昌链 rest 接口      |                   | http://[域名:端口]:18601/api/[用户接入 Key]/irisnet/rest/                      |
-| 文昌链 rpc 接口       |                   | [域名:端口]:18602HEADER 配置：x-api-key:[用户接入 Key]x-api-chain-type:irisnet |
+| 文昌链 rpc 接口       |                   | [域名:端口]:18602<br>HEADER 配置：<br>x-api-key:[用户接入 Key]<br>x-api-chain-type:irisnet |
 | 泰安链 rpc 接口       |                   | http://[域名:端口]:18601/api/[用户接入 Key]/fisco/rpc/                         |
-
+|武汉链 rpc 接口||http://[域名:端口]:18601/api/[用户接入Key]/eth/rpc/
+|武汉链 wc 接口||ws://[域名:端口]:18602/api/[用户接入Key]/eth/ws/
 ## <strong>验证步骤</strong>
 
 在数据中心方门户中获取网关接入信息，然后按格式请求网关接口，验证请求是否可以成功。
