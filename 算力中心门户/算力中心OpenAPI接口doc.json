@@ -40,6 +40,12 @@
       "extensions": {
         "x-order": "2147483647"
       }
+    },
+    {
+      "name": "5-NFT",
+      "extensions": {
+        "x-order": "2147483647"
+      }
     }
   ],
   "paths": {
@@ -919,6 +925,453 @@
         }
       }
     },
+    "/ddcoai/sys/v1/nft/data/searches": {
+      "post": {
+        "tags": [
+          "5-NFT"
+        ],
+        "summary": "NFT列表查询",
+        "description": "可根据Token ID、类型、链账户地址、链类型查询",
+        "operationId": "dataSearchesUsingPOST_1",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestPageInfo«InNftSearches»"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfoPage«List«OutNftSearches»»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "2147483647"
+        }
+      }
+    },
+    "/ddcoai/sys/v1/nft/data/searches/details/tokenId": {
+      "post": {
+        "tags": [
+          "5-NFT"
+        ],
+        "summary": "查看NFT详情",
+        "description": "根据NFT ID查看NFT详情",
+        "operationId": "searchDetailsByTokenIdUsingPOST",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InNftSearchDetailsByTokenId"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfo«OutNftSearchDetailsByTokenId»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "2147483647"
+        }
+      }
+    },
+    "/ddcoai/sys/v1/nft/data/searches/details/tx/record": {
+      "post": {
+        "tags": [
+          "5-NFT"
+        ],
+        "summary": "查询NFT流转记录",
+        "description": "查询NFT流转记录",
+        "operationId": "searchDetailsByTxRecordUsingPOST_1",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestPageInfo«InNftSearchDetailsByTokenId»"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfoPage«List«OutNftSearchDetailsByTxRecord»»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "2147483647"
+        }
+      }
+    },
+    "/ddcoai/sys/v1/nft/burn": {
+      "post": {
+        "tags": [
+          "5-NFT"
+        ],
+        "summary": "NFT销毁",
+        "description": "销毁指定开放联盟链框架的nft且必须为同一个算力中心方",
+        "operationId": "burnUsingPOST_1",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InNftBurn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfo«OutDdcTrade»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "5"
+        }
+      }
+    },
+    "/ddcoai/sys/v1/nft/save": {
+      "post": {
+        "tags": [
+          "5-NFT"
+        ],
+        "summary": "NFT生成",
+        "description": "生成指定开放联盟链框架的nft",
+        "operationId": "ddcSaveUsingPOST_1",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InNftSave"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfo«OutDdcTrade»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "1"
+        }
+      }
+    },
+    "/ddcoai/sys/v1/nft/send": {
+      "post": {
+        "tags": [
+          "5-NFT"
+        ],
+        "summary": "NFT发送",
+        "description": "发送指定开放联盟链框架的nft到同一个算力中心方的链账户地址",
+        "operationId": "sendUsingPOST_1",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InNftSend"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfo«OutDdcTrade»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "3"
+        }
+      }
+    },
+    "/ddcoai/sys/v1/nft/fee/searches": {
+      "post": {
+        "tags": [
+          "5-NFT"
+        ],
+        "summary": "NFT交易定价查询",
+        "description": "查询NFT交易与算力值定值列表，算力值支持小数点后两位",
+        "operationId": "feeSearchesUsingPOST",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfo«List«OutNftFeeSearches»»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "2147483647"
+        }
+      }
+    },
+    "/ddcoai/sys/v1/nft/transfer/searches": {
+      "post": {
+        "tags": [
+          "5-NFT"
+        ],
+        "summary": "NFT交易明细查询",
+        "description": "查询NFT交易明细列表，包含官方NFT交易的状态结果",
+        "operationId": "transferSearchesUsingPOST",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InNftTransferSearches"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfo«List«OutNftTransferSearches»»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "2147483647"
+        }
+      }
+    },
     "/ddcoai/sys/v1/opb/frame/framework/searches": {
       "post": {
         "tags": [
@@ -1328,6 +1781,311 @@
             "description": "开放联盟链id",
             "format": "int64",
             "example": 2,
+            "refType": null
+          }
+        }
+      },
+      "InNftBurn": {
+        "title": "InNftBurn",
+        "required": [
+          "opbChainId",
+          "owner",
+          "tokenId",
+          "tokenType",
+          "userTradeCode"
+        ],
+        "type": "object",
+        "properties": {
+          "opbChainId": {
+            "type": "integer",
+            "description": "链类型",
+            "format": "int64",
+            "example": 9,
+            "refType": null
+          },
+          "owner": {
+            "type": "string",
+            "description": "拥有者链账户地址",
+            "example": "0x00000000000",
+            "refType": null
+          },
+          "securityData": {
+            "type": "string",
+            "description": "附加数据",
+            "example": "附加数据",
+            "refType": null
+          },
+          "tokenId": {
+            "type": "string",
+            "description": "Token ID",
+            "example": "100",
+            "refType": null
+          },
+          "tokenType": {
+            "type": "integer",
+            "description": "Token类型：721,1155",
+            "format": "int32",
+            "example": 721,
+            "refType": null
+          },
+          "userTradeCode": {
+            "type": "string",
+            "description": "用户第三方流水号",
+            "example": "用户第三方流水号",
+            "refType": null
+          }
+        }
+      },
+      "InNftSave": {
+        "title": "InNftSave",
+        "required": [
+          "attachListCode",
+          "imgFileBase64",
+          "imgFileName",
+          "opbChainId",
+          "owner",
+          "securityData",
+          "tokenType",
+          "userTradeCode"
+        ],
+        "type": "object",
+        "properties": {
+          "attachListCode": {
+            "type": "string",
+            "description": "附件code",
+            "example": "0000000000000",
+            "refType": null
+          },
+          "desc": {
+            "type": "string",
+            "description": "描述",
+            "example": "描述",
+            "refType": null
+          },
+          "imgFileBase64": {
+            "type": "string",
+            "description": "文件base64编码，支持的格式(png,jpg,jpeg,bmp,gif,doc,docx,pdf)，大小限制2m",
+            "example": "png,iVBORw0KGgoAAAAN...(其中png为文件格式)",
+            "refType": null
+          },
+          "imgFileName": {
+            "pattern": "^[^.]*$",
+            "type": "string",
+            "description": "图片文件名称(不包含拓展名)",
+            "example": "file1",
+            "refType": null
+          },
+          "opbChainId": {
+            "type": "integer",
+            "description": "链标识",
+            "format": "int64",
+            "example": 1,
+            "refType": null
+          },
+          "owner": {
+            "type": "string",
+            "description": "链账户地址",
+            "example": "0x0000000000000000000",
+            "refType": null
+          },
+          "pubTotal": {
+            "type": "integer",
+            "description": "发行数量：1155必填",
+            "format": "int64",
+            "example": 100,
+            "refType": null
+          },
+          "securityData": {
+            "type": "string",
+            "description": "附加数据",
+            "example": "附加数据",
+            "refType": null
+          },
+          "tokenType": {
+            "type": "integer",
+            "description": "NFT类型：721,1155",
+            "format": "int32",
+            "example": 721,
+            "refType": null
+          },
+          "userTradeCode": {
+            "type": "string",
+            "description": "用户第三方流水号",
+            "example": "用户第三方流水号",
+            "refType": null
+          }
+        }
+      },
+      "InNftSearchDetailsByTokenId": {
+        "title": "InNftSearchDetailsByTokenId",
+        "required": [
+          "opbChainId",
+          "tokenId",
+          "tokenType"
+        ],
+        "type": "object",
+        "properties": {
+          "opbChainId": {
+            "type": "integer",
+            "description": "开放联盟链id",
+            "format": "int64",
+            "example": 2,
+            "refType": null
+          },
+          "tokenId": {
+            "type": "string",
+            "description": "token Id",
+            "example": "1",
+            "refType": null
+          },
+          "tokenType": {
+            "type": "integer",
+            "description": "Token类型",
+            "format": "int32",
+            "example": 721,
+            "refType": null
+          }
+        }
+      },
+      "InNftSearches": {
+        "title": "InNftSearches",
+        "type": "object",
+        "properties": {
+          "beginDate": {
+            "type": "string",
+            "description": "开始时间",
+            "format": "date-time",
+            "refType": null
+          },
+          "endDate": {
+            "type": "string",
+            "description": "结束时间",
+            "format": "date-time",
+            "refType": null
+          },
+          "opbChainId": {
+            "type": "integer",
+            "description": "链标识",
+            "format": "int64",
+            "example": 9,
+            "refType": null
+          },
+          "owner": {
+            "type": "string",
+            "description": "链账户地址",
+            "example": "0x000000000",
+            "refType": null
+          },
+          "tokenId": {
+            "type": "string",
+            "description": "Token ID",
+            "example": "123",
+            "refType": null
+          },
+          "tokenStatus": {
+            "type": "integer",
+            "description": "Token 状态：1=正常  4=销毁中 5=销毁 10=生成中 15=生成失败 20=发送中 25=发送失败   100=已冻结",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "tokenType": {
+            "type": "integer",
+            "description": "token 类型",
+            "format": "int32",
+            "example": 721,
+            "refType": null
+          }
+        }
+      },
+      "InNftSend": {
+        "title": "InNftSend",
+        "required": [
+          "opbChainId",
+          "owner",
+          "recipientAccount",
+          "securityData",
+          "sendNumber",
+          "tokenId",
+          "tokenType",
+          "userTradeCode"
+        ],
+        "type": "object",
+        "properties": {
+          "opbChainId": {
+            "type": "integer",
+            "description": "链类型",
+            "format": "int64",
+            "example": 9,
+            "refType": null
+          },
+          "owner": {
+            "type": "string",
+            "description": "拥有者链账户地址",
+            "example": "0x00000000000",
+            "refType": null
+          },
+          "recipientAccount": {
+            "type": "string",
+            "description": "接收者账户",
+            "example": "0x0000000000",
+            "refType": null
+          },
+          "securityData": {
+            "type": "string",
+            "description": "附加数据",
+            "example": "附加数据",
+            "refType": null
+          },
+          "sendNumber": {
+            "type": "integer",
+            "description": "发送数量",
+            "format": "int64",
+            "example": 10,
+            "refType": null
+          },
+          "tokenId": {
+            "type": "string",
+            "description": "Token ID",
+            "example": "100",
+            "refType": null
+          },
+          "tokenType": {
+            "type": "integer",
+            "description": "Token类型：721,1155",
+            "format": "int32",
+            "example": 721,
+            "refType": null
+          },
+          "userTradeCode": {
+            "type": "string",
+            "description": "用户第三方流水号",
+            "example": "用户第三方流水号",
+            "refType": null
+          }
+        }
+      },
+      "InNftTransferSearches": {
+        "title": "InNftTransferSearches",
+        "required": [
+          "tradeCode"
+        ],
+        "type": "object",
+        "properties": {
+          "tradeCode": {
+            "type": "string",
+            "description": "算力交易流水号",
+            "refType": null
+          },
+          "txType": {
+            "type": "integer",
+            "description": "交易类型   20=NFT生成  22=NFT流转   23=NFT销毁",
+            "format": "int32",
+            "refType": null
+          },
+          "userTradeCode": {
+            "type": "string",
+            "description": "用户第三方流水号",
             "refType": null
           }
         }
@@ -1757,6 +2515,328 @@
           }
         }
       },
+      "OutNftFeeSearches": {
+        "title": "OutNftFeeSearches",
+        "type": "object",
+        "properties": {
+          "txAmount": {
+            "type": "number",
+            "description": "NFT交易价格",
+            "format": "bigdecimal",
+            "example": 6,
+            "refType": null
+          },
+          "txType": {
+            "type": "integer",
+            "description": "NFT交易类型：20=生成 22=流转 23=销毁",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          }
+        }
+      },
+      "OutNftSearchDetailsByTokenId": {
+        "title": "OutNftSearchDetailsByTokenId",
+        "required": [
+          "generateDate",
+          "generateState",
+          "opbChainName",
+          "opsMgrState",
+          "tokenId",
+          "tokenState",
+          "tokenType",
+          "tokenUri"
+        ],
+        "type": "object",
+        "properties": {
+          "desc": {
+            "type": "string",
+            "description": "Token描述",
+            "example": "描述",
+            "refType": null
+          },
+          "generateDate": {
+            "type": "string",
+            "description": "生成时间",
+            "example": "2022-11-09 10:00:00",
+            "refType": null
+          },
+          "generateState": {
+            "type": "integer",
+            "description": "生成状态  1=生成中 5=正常 10=生成失败 ",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "opbChainName": {
+            "type": "string",
+            "description": "框架名称",
+            "example": "泰安链",
+            "refType": null
+          },
+          "opsMgrState": {
+            "type": "integer",
+            "description": "运营冻结状态   1=冻结  5=正常（解冻）",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "publishQuantity": {
+            "type": "integer",
+            "description": "发行量（只有1155类型有值）",
+            "format": "int64",
+            "example": 100,
+            "refType": null
+          },
+          "tokenId": {
+            "type": "string",
+            "description": "Token ID",
+            "example": "122",
+            "refType": null
+          },
+          "tokenState": {
+            "type": "integer",
+            "description": "Token状态 1=正常  4=销毁中 5=销毁  20=发送中 25=发送失败 ",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "tokenType": {
+            "type": "integer",
+            "description": "Token 类型",
+            "format": "int32",
+            "example": 721,
+            "refType": null
+          },
+          "tokenUri": {
+            "type": "string",
+            "description": "Token uri",
+            "refType": null
+          }
+        }
+      },
+      "OutNftSearchDetailsByTxRecord": {
+        "title": "OutNftSearchDetailsByTxRecord",
+        "required": [
+          "blockHeight",
+          "createDate",
+          "receiveAccount",
+          "sendAccount",
+          "txHash",
+          "txType"
+        ],
+        "type": "object",
+        "properties": {
+          "blockHeight": {
+            "type": "integer",
+            "description": "块高",
+            "format": "int64",
+            "example": 11111,
+            "refType": null
+          },
+          "createDate": {
+            "type": "string",
+            "description": "交易时间",
+            "example": "2022-11-09 10:00:00",
+            "refType": null
+          },
+          "receiveAccount": {
+            "type": "string",
+            "description": "接收者账户",
+            "example": "0x0000000000000",
+            "refType": null
+          },
+          "sendAccount": {
+            "type": "string",
+            "description": "发送者账户",
+            "example": "0x0000000000000",
+            "refType": null
+          },
+          "txHash": {
+            "type": "string",
+            "description": "交易hash",
+            "example": "0x0000000000000",
+            "refType": null
+          },
+          "txType": {
+            "type": "integer",
+            "description": "交易类型：20=NFT生成  22=NFT流转   23=NFT销毁  ",
+            "format": "int32",
+            "example": 20,
+            "refType": null
+          }
+        }
+      },
+      "OutNftSearches": {
+        "title": "OutNftSearches",
+        "required": [
+          "generateState",
+          "opbChainId",
+          "opsMgrState",
+          "owner",
+          "platformDdcCode",
+          "tokenState",
+          "tokenType"
+        ],
+        "type": "object",
+        "properties": {
+          "generateDate": {
+            "type": "string",
+            "description": "生成时间",
+            "example": "2022-11-09 11:00:00",
+            "refType": null
+          },
+          "generateState": {
+            "type": "integer",
+            "description": "Token生成状态  1=生成中 5=正常 10=生成失败 ",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "opbChainId": {
+            "type": "integer",
+            "description": "链标识",
+            "format": "int64",
+            "example": 4,
+            "refType": null
+          },
+          "opsMgrState": {
+            "type": "integer",
+            "description": "运营冻结状态   1=冻结  5=正常（解冻）",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "owner": {
+            "type": "string",
+            "description": "链账户地址",
+            "example": "0x0000000",
+            "refType": null
+          },
+          "platformDdcCode": {
+            "type": "string",
+            "description": "Token CODE",
+            "example": "SSSSSSS",
+            "refType": null
+          },
+          "tokenId": {
+            "type": "string",
+            "description": "Token Id",
+            "example": "123",
+            "refType": null
+          },
+          "tokenState": {
+            "type": "integer",
+            "description": "Token状态 1=正常  4=销毁中 5=销毁  20=发送中 25=发送失败 ",
+            "format": "int32",
+            "example": 1,
+            "refType": null
+          },
+          "tokenType": {
+            "type": "integer",
+            "description": "Token 类型",
+            "format": "int32",
+            "example": 721,
+            "refType": null
+          }
+        }
+      },
+      "OutNftTransferSearches": {
+        "title": "OutNftTransferSearches",
+        "required": [
+          "opbChainId",
+          "opbChainName",
+          "owner",
+          "sendAccount",
+          "tokenId",
+          "tokenType",
+          "tradeCode",
+          "txHash",
+          "txStatus",
+          "txType",
+          "userTradeCode"
+        ],
+        "type": "object",
+        "properties": {
+          "burnQuantity": {
+            "type": "integer",
+            "description": "销毁数量",
+            "format": "int64",
+            "refType": null
+          },
+          "mintQuantity": {
+            "type": "integer",
+            "description": "生成数量",
+            "format": "int64",
+            "refType": null
+          },
+          "opbChainId": {
+            "type": "integer",
+            "description": "开放联盟链链ID",
+            "format": "int64",
+            "refType": null
+          },
+          "opbChainName": {
+            "type": "string",
+            "description": "开放联盟链链名称",
+            "refType": null
+          },
+          "owner": {
+            "type": "string",
+            "description": "接收者账户地址",
+            "refType": null
+          },
+          "sendAccount": {
+            "type": "string",
+            "description": "发送者账户地址",
+            "refType": null
+          },
+          "tokenId": {
+            "type": "string",
+            "description": "Token Id",
+            "refType": null
+          },
+          "tokenType": {
+            "type": "integer",
+            "description": "Token类型：721,1155",
+            "format": "int32",
+            "refType": null
+          },
+          "tradeCode": {
+            "type": "string",
+            "description": "算力交易流水号",
+            "refType": null
+          },
+          "tradeQuantity": {
+            "type": "integer",
+            "description": "流转数量",
+            "format": "int64",
+            "refType": null
+          },
+          "txHash": {
+            "type": "string",
+            "description": "交易哈希",
+            "refType": null
+          },
+          "txStatus": {
+            "type": "integer",
+            "description": "交易状态：0=处理中 1=成功 2=失败",
+            "format": "int32",
+            "refType": null
+          },
+          "txType": {
+            "type": "integer",
+            "description": "交易类型   20=NFT生成  22=NFT流转   23=NFT销毁",
+            "format": "int32",
+            "refType": null
+          },
+          "userTradeCode": {
+            "type": "string",
+            "description": "用户第三方流水号",
+            "refType": null
+          }
+        }
+      },
       "OutOpbChainAccountSearches": {
         "title": "OutOpbChainAccountSearches",
         "required": [
@@ -2111,6 +3191,46 @@
           }
         }
       },
+      "RequestPageInfo«InNftSearchDetailsByTokenId»": {
+        "title": "RequestPageInfo«InNftSearchDetailsByTokenId»",
+        "required": [
+          "data",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "请求报文体，不能为null，可以为空对象",
+            "$ref": "#/components/schemas/InNftSearchDetailsByTokenId",
+            "refType": "InNftSearchDetailsByTokenId"
+          },
+          "page": {
+            "description": "分页入参",
+            "$ref": "#/components/schemas/InPage",
+            "refType": "InPage"
+          }
+        }
+      },
+      "RequestPageInfo«InNftSearches»": {
+        "title": "RequestPageInfo«InNftSearches»",
+        "required": [
+          "data",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "description": "请求报文体，不能为null，可以为空对象",
+            "$ref": "#/components/schemas/InNftSearches",
+            "refType": "InNftSearches"
+          },
+          "page": {
+            "description": "分页入参",
+            "$ref": "#/components/schemas/InPage",
+            "refType": "InPage"
+          }
+        }
+      },
       "RequestPageInfo«InOpbChainAccountSearches»": {
         "title": "RequestPageInfo«InOpbChainAccountSearches»",
         "required": [
@@ -2168,6 +3288,78 @@
             "description": "分页入参",
             "$ref": "#/components/schemas/InPage",
             "refType": "InPage"
+          }
+        }
+      },
+      "ResultInfoPage«List«OutNftSearchDetailsByTxRecord»»": {
+        "title": "ResultInfoPage«List«OutNftSearchDetailsByTxRecord»»",
+        "required": [
+          "code",
+          "errorLogCode",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "成功：0，失败：-1",
+            "format": "int32",
+            "example": 0
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OutNftSearchDetailsByTxRecord"
+            }
+          },
+          "errorLogCode": {
+            "type": "string",
+            "description": "此标记同时写入到日志文件中，方便查找",
+            "example": "0"
+          },
+          "message": {
+            "type": "string",
+            "description": "都是消息编码，前端自行国际化处理",
+            "example": "0"
+          },
+          "resultPageInfo": {
+            "$ref": "#/components/schemas/PageInfo"
+          }
+        }
+      },
+      "ResultInfoPage«List«OutNftSearches»»": {
+        "title": "ResultInfoPage«List«OutNftSearches»»",
+        "required": [
+          "code",
+          "errorLogCode",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "成功：0，失败：-1",
+            "format": "int32",
+            "example": 0
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OutNftSearches"
+            }
+          },
+          "errorLogCode": {
+            "type": "string",
+            "description": "此标记同时写入到日志文件中，方便查找",
+            "example": "0"
+          },
+          "message": {
+            "type": "string",
+            "description": "都是消息编码，前端自行国际化处理",
+            "example": "0"
+          },
+          "resultPageInfo": {
+            "$ref": "#/components/schemas/PageInfo"
           }
         }
       },
@@ -2331,6 +3523,72 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OutDdcTransferSearches"
+            }
+          },
+          "errorLogCode": {
+            "type": "string",
+            "description": "此标记同时写入到日志文件中，方便查找",
+            "example": "0"
+          },
+          "message": {
+            "type": "string",
+            "description": "都是消息编码，前端自行国际化处理",
+            "example": "0"
+          }
+        }
+      },
+      "ResultInfo«List«OutNftFeeSearches»»": {
+        "title": "ResultInfo«List«OutNftFeeSearches»»",
+        "required": [
+          "code",
+          "errorLogCode",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "成功：0，失败：-1",
+            "format": "int32",
+            "example": 0
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OutNftFeeSearches"
+            }
+          },
+          "errorLogCode": {
+            "type": "string",
+            "description": "此标记同时写入到日志文件中，方便查找",
+            "example": "0"
+          },
+          "message": {
+            "type": "string",
+            "description": "都是消息编码，前端自行国际化处理",
+            "example": "0"
+          }
+        }
+      },
+      "ResultInfo«List«OutNftTransferSearches»»": {
+        "title": "ResultInfo«List«OutNftTransferSearches»»",
+        "required": [
+          "code",
+          "errorLogCode",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "成功：0，失败：-1",
+            "format": "int32",
+            "example": 0
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OutNftTransferSearches"
             }
           },
           "errorLogCode": {
@@ -2605,6 +3863,36 @@
           },
           "data": {
             "$ref": "#/components/schemas/OutHashRateResourceRatioDtoSearch"
+          },
+          "errorLogCode": {
+            "type": "string",
+            "description": "此标记同时写入到日志文件中，方便查找",
+            "example": "0"
+          },
+          "message": {
+            "type": "string",
+            "description": "都是消息编码，前端自行国际化处理",
+            "example": "0"
+          }
+        }
+      },
+      "ResultInfo«OutNftSearchDetailsByTokenId»": {
+        "title": "ResultInfo«OutNftSearchDetailsByTokenId»",
+        "required": [
+          "code",
+          "errorLogCode",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "成功：0，失败：-1",
+            "format": "int32",
+            "example": 0
+          },
+          "data": {
+            "$ref": "#/components/schemas/OutNftSearchDetailsByTokenId"
           },
           "errorLogCode": {
             "type": "string",
