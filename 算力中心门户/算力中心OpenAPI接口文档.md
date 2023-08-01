@@ -1605,6 +1605,801 @@
 ```
 
 
+# 5-NFT
+
+
+## NFT生成
+
+
+**接口地址**:`/ddcoai/sys/v1/nft/save`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>生成指定开放联盟链框架的nft</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "attachListCode": "0000000000000",
+  "desc": "描述",
+  "imgFileBase64": "png,iVBORw0KGgoAAAAN...(其中png为文件格式)",
+  "imgFileName": "file1",
+  "opbChainId": 1,
+  "owner": "0x0000000000000000000",
+  "pubTotal": 100,
+  "securityData": "附加数据",
+  "tokenType": 721,
+  "userTradeCode": "用户第三方流水号"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+|inNftSave|InNftSave|body|true|InNftSave|InNftSave|
+|&emsp;&emsp;attachListCode|附件code||true|string||
+|&emsp;&emsp;desc|描述||false|string||
+|&emsp;&emsp;imgFileBase64|文件base64编码，支持的格式(png,jpg,jpeg,bmp,gif,doc,docx,pdf)，大小限制2m||true|string||
+|&emsp;&emsp;imgFileName|图片文件名称(不包含拓展名)||true|string||
+|&emsp;&emsp;opbChainId|链标识||true|integer(int64)||
+|&emsp;&emsp;owner|链账户地址||true|string||
+|&emsp;&emsp;pubTotal|发行数量：1155必填||false|integer(int64)||
+|&emsp;&emsp;securityData|附加数据||true|string||
+|&emsp;&emsp;tokenType|NFT类型：721,1155||true|integer(int32)||
+|&emsp;&emsp;userTradeCode|用户第三方流水号||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfo«OutDdcTrade»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||OutDdcTrade|OutDdcTrade|
+|&emsp;&emsp;tradeCode|算力交易流水号|string||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": {
+		"tradeCode": "DDC00000000001"
+	},
+	"errorLogCode": "0",
+	"message": "0"
+}
+```
+
+
+## NFT发送
+
+
+**接口地址**:`/ddcoai/sys/v1/nft/send`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>发送指定开放联盟链框架的nft到同一个算力中心方的链账户地址</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "opbChainId": 9,
+  "owner": "0x00000000000",
+  "recipientAccount": "0x0000000000",
+  "securityData": "附加数据",
+  "sendNumber": 10,
+  "tokenId": "100",
+  "tokenType": 721,
+  "userTradeCode": "用户第三方流水号"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+|inNftSend|InNftSend|body|true|InNftSend|InNftSend|
+|&emsp;&emsp;opbChainId|链类型||true|integer(int64)||
+|&emsp;&emsp;owner|拥有者链账户地址||true|string||
+|&emsp;&emsp;recipientAccount|接收者账户||true|string||
+|&emsp;&emsp;securityData|附加数据||true|string||
+|&emsp;&emsp;sendNumber|发送数量||true|integer(int64)||
+|&emsp;&emsp;tokenId|Token ID||true|string||
+|&emsp;&emsp;tokenType|Token类型：721,1155||true|integer(int32)||
+|&emsp;&emsp;userTradeCode|用户第三方流水号||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfo«OutDdcTrade»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||OutDdcTrade|OutDdcTrade|
+|&emsp;&emsp;tradeCode|算力交易流水号|string||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": {
+		"tradeCode": "DDC00000000001"
+	},
+	"errorLogCode": "0",
+	"message": "0"
+}
+```
+
+
+## NFT销毁
+
+
+**接口地址**:`/ddcoai/sys/v1/nft/burn`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>销毁指定开放联盟链框架的nft且必须为同一个算力中心方</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "opbChainId": 9,
+  "owner": "0x00000000000",
+  "securityData": "附加数据",
+  "tokenId": "100",
+  "tokenType": 721,
+  "userTradeCode": "用户第三方流水号"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+|inNftBurn|InNftBurn|body|true|InNftBurn|InNftBurn|
+|&emsp;&emsp;opbChainId|链类型||true|integer(int64)||
+|&emsp;&emsp;owner|拥有者链账户地址||true|string||
+|&emsp;&emsp;securityData|附加数据||false|string||
+|&emsp;&emsp;tokenId|Token ID||true|string||
+|&emsp;&emsp;tokenType|Token类型：721,1155||true|integer(int32)||
+|&emsp;&emsp;userTradeCode|用户第三方流水号||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfo«OutDdcTrade»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||OutDdcTrade|OutDdcTrade|
+|&emsp;&emsp;tradeCode|算力交易流水号|string||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": {
+		"tradeCode": "DDC00000000001"
+	},
+	"errorLogCode": "0",
+	"message": "0"
+}
+```
+
+
+## NFT列表查询
+
+
+**接口地址**:`/ddcoai/sys/v1/nft/data/searches`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>可根据Token ID、类型、链账户地址、链类型查询</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "data": {
+    "beginDate": "",
+    "endDate": "",
+    "opbChainId": 9,
+    "owner": "0x000000000",
+    "tokenId": "123",
+    "tokenStatus": 1,
+    "tokenType": 721
+  },
+  "page": {
+    "pageNum": 1,
+    "pageSize": 5
+  }
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+|requestPageInfo«InNftSearches»|RequestPageInfo«InNftSearches»|body|true|RequestPageInfo«InNftSearches»|RequestPageInfo«InNftSearches»|
+|&emsp;&emsp;data|请求报文体，不能为null，可以为空对象||true|InNftSearches|InNftSearches|
+|&emsp;&emsp;&emsp;&emsp;beginDate|开始时间||false|string||
+|&emsp;&emsp;&emsp;&emsp;endDate|结束时间||false|string||
+|&emsp;&emsp;&emsp;&emsp;opbChainId|链标识||false|integer||
+|&emsp;&emsp;&emsp;&emsp;owner|链账户地址||false|string||
+|&emsp;&emsp;&emsp;&emsp;tokenId|Token ID||false|string||
+|&emsp;&emsp;&emsp;&emsp;tokenStatus|Token 状态：1=正常  4=销毁中 5=销毁 10=生成中 15=生成失败 20=发送中 25=发送失败   100=已冻结||false|integer||
+|&emsp;&emsp;&emsp;&emsp;tokenType|token 类型||false|integer||
+|&emsp;&emsp;page|分页入参||true|InPage|InPage|
+|&emsp;&emsp;&emsp;&emsp;pageNum|分页：从1开始||false|integer||
+|&emsp;&emsp;&emsp;&emsp;pageSize|每页大小。||false|integer||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfoPage«List«OutNftSearches»»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||array|OutNftSearches|
+|&emsp;&emsp;generateDate|生成时间|string||
+|&emsp;&emsp;generateState|Token生成状态  1=生成中 5=正常 10=生成失败 |integer(int32)||
+|&emsp;&emsp;opbChainId|链标识|integer(int64)||
+|&emsp;&emsp;opsMgrState|运营冻结状态   1=冻结  5=正常（解冻）|integer(int32)||
+|&emsp;&emsp;owner|链账户地址|string||
+|&emsp;&emsp;platformDdcCode|Token CODE|string||
+|&emsp;&emsp;tokenId|Token Id|string||
+|&emsp;&emsp;tokenState|Token状态 1=正常  4=销毁中 5=销毁  20=发送中 25=发送失败 |integer(int32)||
+|&emsp;&emsp;tokenType|Token 类型|integer(int32)||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+|resultPageInfo||PageInfo|PageInfo|
+|&emsp;&emsp;firstPage||boolean||
+|&emsp;&emsp;lastPage||boolean||
+|&emsp;&emsp;pageNum||integer(int32)||
+|&emsp;&emsp;pageSize||integer(int32)||
+|&emsp;&emsp;pages||integer(int32)||
+|&emsp;&emsp;total||integer(int64)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": [
+		{
+			"generateDate": "2022-11-09 11:00:00",
+			"generateState": 1,
+			"opbChainId": 4,
+			"opsMgrState": 1,
+			"owner": "0x0000000",
+			"platformDdcCode": "SSSSSSS",
+			"tokenId": "123",
+			"tokenState": 1,
+			"tokenType": 721
+		}
+	],
+	"errorLogCode": "0",
+	"message": "0",
+	"resultPageInfo": {
+		"firstPage": true,
+		"lastPage": true,
+		"pageNum": 0,
+		"pageSize": 0,
+		"pages": 0,
+		"total": 0
+	}
+}
+```
+
+
+## 查看NFT详情
+
+
+**接口地址**:`/ddcoai/sys/v1/nft/data/searches/details/tokenId`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>根据NFT ID查看NFT详情</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "opbChainId": 2,
+  "tokenId": "1",
+  "tokenType": 721
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+|inNftSearchDetailsByTokenId|InNftSearchDetailsByTokenId|body|true|InNftSearchDetailsByTokenId|InNftSearchDetailsByTokenId|
+|&emsp;&emsp;opbChainId|开放联盟链id||true|integer(int64)||
+|&emsp;&emsp;tokenId|token Id||true|string||
+|&emsp;&emsp;tokenType|Token类型||true|integer(int32)||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfo«OutNftSearchDetailsByTokenId»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||OutNftSearchDetailsByTokenId|OutNftSearchDetailsByTokenId|
+|&emsp;&emsp;desc|Token描述|string||
+|&emsp;&emsp;generateDate|生成时间|string||
+|&emsp;&emsp;generateState|生成状态  1=生成中 5=正常 10=生成失败 |integer(int32)||
+|&emsp;&emsp;opbChainName|框架名称|string||
+|&emsp;&emsp;opsMgrState|运营冻结状态   1=冻结  5=正常（解冻）|integer(int32)||
+|&emsp;&emsp;publishQuantity|发行量（只有1155类型有值）|integer(int64)||
+|&emsp;&emsp;tokenId|Token ID|string||
+|&emsp;&emsp;tokenState|Token状态 1=正常  4=销毁中 5=销毁  20=发送中 25=发送失败 |integer(int32)||
+|&emsp;&emsp;tokenType|Token 类型|integer(int32)||
+|&emsp;&emsp;tokenUri|Token uri|string||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": {
+		"desc": "描述",
+		"generateDate": "2022-11-09 10:00:00",
+		"generateState": 1,
+		"opbChainName": "泰安链",
+		"opsMgrState": 1,
+		"publishQuantity": 100,
+		"tokenId": "122",
+		"tokenState": 1,
+		"tokenType": 721,
+		"tokenUri": ""
+	},
+	"errorLogCode": "0",
+	"message": "0"
+}
+```
+
+
+## 查询NFT流转记录
+
+
+**接口地址**:`/ddcoai/sys/v1/nft/data/searches/details/tx/record`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询NFT流转记录</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "data": {
+    "opbChainId": 2,
+    "tokenId": "1",
+    "tokenType": 721
+  },
+  "page": {
+    "pageNum": 1,
+    "pageSize": 5
+  }
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+|requestPageInfo«InNftSearchDetailsByTokenId»|RequestPageInfo«InNftSearchDetailsByTokenId»|body|true|RequestPageInfo«InNftSearchDetailsByTokenId»|RequestPageInfo«InNftSearchDetailsByTokenId»|
+|&emsp;&emsp;data|请求报文体，不能为null，可以为空对象||true|InNftSearchDetailsByTokenId|InNftSearchDetailsByTokenId|
+|&emsp;&emsp;&emsp;&emsp;opbChainId|开放联盟链id||true|integer||
+|&emsp;&emsp;&emsp;&emsp;tokenId|token Id||true|string||
+|&emsp;&emsp;&emsp;&emsp;tokenType|Token类型||true|integer||
+|&emsp;&emsp;page|分页入参||true|InPage|InPage|
+|&emsp;&emsp;&emsp;&emsp;pageNum|分页：从1开始||false|integer||
+|&emsp;&emsp;&emsp;&emsp;pageSize|每页大小。||false|integer||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfoPage«List«OutNftSearchDetailsByTxRecord»»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||array|OutNftSearchDetailsByTxRecord|
+|&emsp;&emsp;blockHeight|块高|integer(int64)||
+|&emsp;&emsp;createDate|交易时间|string||
+|&emsp;&emsp;receiveAccount|接收者账户|string||
+|&emsp;&emsp;sendAccount|发送者账户|string||
+|&emsp;&emsp;txHash|交易hash|string||
+|&emsp;&emsp;txType|交易类型：20=NFT生成  22=NFT流转   23=NFT销毁  |integer(int32)||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+|resultPageInfo||PageInfo|PageInfo|
+|&emsp;&emsp;firstPage||boolean||
+|&emsp;&emsp;lastPage||boolean||
+|&emsp;&emsp;pageNum||integer(int32)||
+|&emsp;&emsp;pageSize||integer(int32)||
+|&emsp;&emsp;pages||integer(int32)||
+|&emsp;&emsp;total||integer(int64)||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": [
+		{
+			"blockHeight": 11111,
+			"createDate": "2022-11-09 10:00:00",
+			"receiveAccount": "0x0000000000000",
+			"sendAccount": "0x0000000000000",
+			"txHash": "0x0000000000000",
+			"txType": 20
+		}
+	],
+	"errorLogCode": "0",
+	"message": "0",
+	"resultPageInfo": {
+		"firstPage": true,
+		"lastPage": true,
+		"pageNum": 0,
+		"pageSize": 0,
+		"pages": 0,
+		"total": 0
+	}
+}
+```
+
+
+## NFT交易定价查询
+
+
+**接口地址**:`/ddcoai/sys/v1/nft/fee/searches`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询NFT交易与算力值定值列表，算力值支持小数点后两位</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfo«List«OutNftFeeSearches»»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||array|OutNftFeeSearches|
+|&emsp;&emsp;txAmount|NFT交易价格|number(bigdecimal)||
+|&emsp;&emsp;txType|NFT交易类型：20=生成 22=流转 23=销毁|integer(int32)||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": [
+		{
+			"txAmount": 6,
+			"txType": 1
+		}
+	],
+	"errorLogCode": "0",
+	"message": "0"
+}
+```
+
+
+## NFT交易明细查询
+
+
+**接口地址**:`/ddcoai/sys/v1/nft/transfer/searches`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>查询NFT交易明细列表，包含官方NFT交易的状态结果</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "tradeCode": "",
+  "txType": 0,
+  "userTradeCode": ""
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+|inNftTransferSearches|InNftTransferSearches|body|true|InNftTransferSearches|InNftTransferSearches|
+|&emsp;&emsp;tradeCode|算力交易流水号||true|string||
+|&emsp;&emsp;txType|交易类型   20=NFT生成  22=NFT流转   23=NFT销毁||false|integer(int32)||
+|&emsp;&emsp;userTradeCode|用户第三方流水号||false|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfo«List«OutNftTransferSearches»»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||array|OutNftTransferSearches|
+|&emsp;&emsp;burnQuantity|销毁数量|integer(int64)||
+|&emsp;&emsp;mintQuantity|生成数量|integer(int64)||
+|&emsp;&emsp;opbChainId|开放联盟链链ID|integer(int64)||
+|&emsp;&emsp;opbChainName|开放联盟链链名称|string||
+|&emsp;&emsp;owner|接收者账户地址|string||
+|&emsp;&emsp;sendAccount|发送者账户地址|string||
+|&emsp;&emsp;tokenId|Token Id|string||
+|&emsp;&emsp;tokenType|Token类型：721,1155|integer(int32)||
+|&emsp;&emsp;tradeCode|算力交易流水号|string||
+|&emsp;&emsp;tradeQuantity|流转数量|integer(int64)||
+|&emsp;&emsp;txHash|交易哈希|string||
+|&emsp;&emsp;txStatus|交易状态：0=处理中 1=成功 2=失败|integer(int32)||
+|&emsp;&emsp;txType|交易类型   20=NFT生成  22=NFT流转   23=NFT销毁|integer(int32)||
+|&emsp;&emsp;userTradeCode|用户第三方流水号|string||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": [
+		{
+			"burnQuantity": 0,
+			"mintQuantity": 0,
+			"opbChainId": 0,
+			"opbChainName": "",
+			"owner": "",
+			"sendAccount": "",
+			"tokenId": "",
+			"tokenType": 0,
+			"tradeCode": "",
+			"tradeQuantity": 0,
+			"txHash": "",
+			"txStatus": 0,
+			"txType": 0,
+			"userTradeCode": ""
+		}
+	],
+	"errorLogCode": "0",
+	"message": "0"
+}
+```
+
+
 # 附录
 
 
