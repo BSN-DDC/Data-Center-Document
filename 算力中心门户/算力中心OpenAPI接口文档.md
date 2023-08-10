@@ -57,7 +57,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«List«OutOpbChainRecordSearches»»|
 |201|Created||
 |401|Unauthorized||
@@ -69,7 +69,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||array|OutOpbChainRecordSearches|
 |&emsp;&emsp;opbAlgorithmName|开放联盟链链算法名称|string||
@@ -162,7 +162,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutDdcTrade»|
 |201|Created||
 |401|Unauthorized||
@@ -174,7 +174,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutDdcTrade|OutDdcTrade|
 |&emsp;&emsp;tradeCode|算力交易流水号|string||
@@ -252,7 +252,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutDdcTrade»|
 |201|Created||
 |401|Unauthorized||
@@ -264,7 +264,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutDdcTrade|OutDdcTrade|
 |&emsp;&emsp;tradeCode|算力交易流水号|string||
@@ -338,7 +338,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutDdcTrade»|
 |201|Created||
 |401|Unauthorized||
@@ -350,7 +350,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutDdcTrade|OutDdcTrade|
 |&emsp;&emsp;tradeCode|算力交易流水号|string||
@@ -430,7 +430,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfoPage«List«OutSearchesDdc»»|
 |201|Created||
 |401|Unauthorized||
@@ -442,7 +442,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||array|OutSearchesDdc|
 |&emsp;&emsp;ddcGenerateState|DDC生成状态  1=生成中 5=正常 10=生成失败 |integer(int32)||
@@ -543,7 +543,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutSearchDetailsByDdcId»|
 |201|Created||
 |401|Unauthorized||
@@ -555,7 +555,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutSearchDetailsByDdcId|OutSearchDetailsByDdcId|
 |&emsp;&emsp;ddcDesc|DDC描述|string||
@@ -651,7 +651,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfoPage«List«OutSearchDetailsByTxRecord»»|
 |201|Created||
 |401|Unauthorized||
@@ -663,7 +663,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||array|OutSearchDetailsByTxRecord|
 |&emsp;&emsp;blockHeight|块高|integer(int64)||
@@ -742,7 +742,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«List«OutDdcFeeSearches»»|
 |201|Created||
 |401|Unauthorized||
@@ -754,7 +754,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||array|OutDdcFeeSearches|
 |&emsp;&emsp;txAmount|DDC交易价格|number(bigdecimal)||
@@ -826,7 +826,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«List«OutDdcTransferSearches»»|
 |201|Created||
 |401|Unauthorized||
@@ -838,7 +838,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||array|OutDdcTransferSearches|
 |&emsp;&emsp;burnQuantity|销毁数量|integer(int64)||
@@ -935,7 +935,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutChainAccountSave»|
 |201|Created||
 |401|Unauthorized||
@@ -947,7 +947,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutChainAccountSave|OutChainAccountSave|
 |&emsp;&emsp;opbChainClientAddress|链账户地址|string||
@@ -1029,7 +1029,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfoPage«List«OutOpbChainAccountSearches»»|
 |201|Created||
 |401|Unauthorized||
@@ -1041,7 +1041,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||array|OutOpbChainAccountSearches|
 |&emsp;&emsp;energyValueBalance|能量值余额（eos：NET:111111bytes,CPU:111111us,RAM:11111bytes）|string||
@@ -1134,7 +1134,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutHashRateGasRatioSearch»|
 |201|Created||
 |401|Unauthorized||
@@ -1146,7 +1146,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutHashRateGasRatioSearch|OutHashRateGasRatioSearch|
 |&emsp;&emsp;gasQuantity|1算力值对应的能量值|number(bigdecimal)||
@@ -1198,7 +1198,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutHashRateResourceRatioDtoSearch»|
 |201|Created||
 |401|Unauthorized||
@@ -1210,7 +1210,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutHashRateResourceRatioDtoSearch|OutHashRateResourceRatioDtoSearch|
 |&emsp;&emsp;eosCpu|cpu单价 (算力/SYS/天)|number(double)||
@@ -1282,7 +1282,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutEnergyRecharge»|
 |201|Created||
 |401|Unauthorized||
@@ -1294,7 +1294,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutEnergyRecharge|OutEnergyRecharge|
 |&emsp;&emsp;energyValue|充值成功的能量值|number(bigdecimal)||
@@ -1368,7 +1368,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutEosResourceRecharge»|
 |201|Created||
 |401|Unauthorized||
@@ -1380,7 +1380,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutEosResourceRecharge|OutEosResourceRecharge|
 |&emsp;&emsp;cpuPlusValue|充值cpu量|number(biginteger)||
@@ -1441,7 +1441,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutAccessKeySearch»|
 |201|Created||
 |401|Unauthorized||
@@ -1453,7 +1453,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutAccessKeySearch|OutAccessKeySearch|
 |&emsp;&emsp;accessKey|接入key|string||
@@ -1505,7 +1505,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutAccessKeyModify»|
 |201|Created||
 |401|Unauthorized||
@@ -1517,7 +1517,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutAccessKeyModify|OutAccessKeyModify|
 |&emsp;&emsp;accessKey|更新后的接入Key|string||
@@ -1572,7 +1572,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutUserAccountInfoSearch»|
 |201|Created||
 |401|Unauthorized||
@@ -1584,7 +1584,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutUserAccountInfoSearch|OutUserAccountInfoSearch|
 |&emsp;&emsp;accountBalance|账户余额：算力值|number(bigdecimal)||
@@ -1669,7 +1669,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutDdcTrade»|
 |201|Created||
 |401|Unauthorized||
@@ -1681,7 +1681,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutDdcTrade|OutDdcTrade|
 |&emsp;&emsp;tradeCode|算力交易流水号|string||
@@ -1759,7 +1759,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutDdcTrade»|
 |201|Created||
 |401|Unauthorized||
@@ -1771,7 +1771,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutDdcTrade|OutDdcTrade|
 |&emsp;&emsp;tradeCode|算力交易流水号|string||
@@ -1845,7 +1845,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutDdcTrade»|
 |201|Created||
 |401|Unauthorized||
@@ -1857,7 +1857,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutDdcTrade|OutDdcTrade|
 |&emsp;&emsp;tradeCode|算力交易流水号|string||
@@ -1943,7 +1943,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfoPage«List«OutNftSearches»»|
 |201|Created||
 |401|Unauthorized||
@@ -1955,9 +1955,10 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||array|OutNftSearches|
+|&emsp;&emsp;ddcOwnerQuantity|owner数量|integer(int64)||
 |&emsp;&emsp;generateDate|生成时间|string||
 |&emsp;&emsp;generateState|Token生成状态  1=生成中 5=正常 10=生成失败 |integer(int32)||
 |&emsp;&emsp;opbChainId|链标识|integer(int64)||
@@ -1984,6 +1985,7 @@
 	"code": 0,
 	"data": [
 		{
+			"ddcOwnerQuantity": 1,
 			"generateDate": "2022-11-09 11:00:00",
 			"generateState": 1,
 			"opbChainId": 4,
@@ -2056,7 +2058,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«OutNftSearchDetailsByTokenId»|
 |201|Created||
 |401|Unauthorized||
@@ -2068,7 +2070,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||OutNftSearchDetailsByTokenId|OutNftSearchDetailsByTokenId|
 |&emsp;&emsp;desc|Token描述|string||
@@ -2164,7 +2166,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfoPage«List«OutNftSearchDetailsByTxRecord»»|
 |201|Created||
 |401|Unauthorized||
@@ -2176,7 +2178,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||array|OutNftSearchDetailsByTxRecord|
 |&emsp;&emsp;blockHeight|块高|integer(int64)||
@@ -2184,7 +2186,7 @@
 |&emsp;&emsp;receiveAccount|接收者账户|string||
 |&emsp;&emsp;sendAccount|发送者账户|string||
 |&emsp;&emsp;txHash|交易hash|string||
-|&emsp;&emsp;txType|交易类型：20=NFT生成  22=NFT流转   23=NFT销毁  |integer(int32)||
+|&emsp;&emsp;txType|交易类型：40=NFT生成  42=NFT流转   43=NFT销毁  |integer(int32)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
 |resultPageInfo||PageInfo|PageInfo|
@@ -2207,7 +2209,7 @@
 			"receiveAccount": "0x0000000000000",
 			"sendAccount": "0x0000000000000",
 			"txHash": "0x0000000000000",
-			"txType": 20
+			"txType": 40
 		}
 	],
 	"errorLogCode": "0",
@@ -2255,7 +2257,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«List«OutNftFeeSearches»»|
 |201|Created||
 |401|Unauthorized||
@@ -2267,11 +2269,11 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||array|OutNftFeeSearches|
 |&emsp;&emsp;txAmount|NFT交易价格|number(bigdecimal)||
-|&emsp;&emsp;txType|NFT交易类型：20=生成 22=流转 23=销毁|integer(int32)||
+|&emsp;&emsp;txType|NFT交易类型：40=生成 42=流转 43=销毁|integer(int32)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
 
@@ -2331,7 +2333,7 @@
 |apitoken|apitoken|header|true|string||
 |inNftTransferSearches|InNftTransferSearches|body|true|InNftTransferSearches|InNftTransferSearches|
 |&emsp;&emsp;tradeCode|算力交易流水号||true|string||
-|&emsp;&emsp;txType|交易类型   20=NFT生成  22=NFT流转   23=NFT销毁||false|integer(int32)||
+|&emsp;&emsp;txType|交易类型   40=NFT生成  42=NFT流转   43=NFT销毁||false|integer(int32)||
 |&emsp;&emsp;userTradeCode|用户第三方流水号||false|string||
 
 
@@ -2339,7 +2341,7 @@
 
 
 | 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
+| -------- | -------- | ----- |
 |200|OK|ResultInfo«List«OutNftTransferSearches»»|
 |201|Created||
 |401|Unauthorized||
@@ -2351,7 +2353,7 @@
 
 
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||array|OutNftTransferSearches|
 |&emsp;&emsp;burnQuantity|销毁数量|integer(int64)||
@@ -2366,7 +2368,7 @@
 |&emsp;&emsp;tradeQuantity|流转数量|integer(int64)||
 |&emsp;&emsp;txHash|交易哈希|string||
 |&emsp;&emsp;txStatus|交易状态：0=处理中 1=成功 2=失败|integer(int32)||
-|&emsp;&emsp;txType|交易类型   20=NFT生成  22=NFT流转   23=NFT销毁|integer(int32)||
+|&emsp;&emsp;txType|交易类型   40=NFT生成  42=NFT流转   43=NFT销毁|integer(int32)||
 |&emsp;&emsp;userTradeCode|用户第三方流水号|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
@@ -2452,7 +2454,7 @@
 | MSG_10053003         | DDC销毁失败                         |
 | MSG_10028041         | 接入key同步到节点网关失败                  |
 | MSG_10028042         | 更新key同步到节点网关失败                  |
-| MSG_200BALANCE_SHORT | 算力值余额不足                         | 
+| MSG_200BALANCE_SHORT | 算力值余额不足                         |
 | MSG_10021051         | 算力交易流水号不正确                      |
 | MSG_10028061         | 文件业务类型不存在                       |
 | MSG_10028062         | 文件格式不能为空                        |
@@ -2465,6 +2467,25 @@
 | MSG_10053012         | 第三方流水号重复                        |
 | MSG_10021072         | 算力中心用户无访问权限                        |
 | MSG_10021073         | 非算力中心用户，无访问权限                        |
+| MSG_10057000         | NFT查询为空                           |
+| MSG_10057001         | NFT生成失败                           |
+| MSG_10057002         | NFT发送失败                           |
+| MSG_10057003         | NFT销毁失败                           |
+| MSG_10057004         | 链标识错误                          |
+| MSG_10057005         | NFT交易状态不支持重试                          |
+| MSG_10057006         | NFT重试失败                           |
+| MSG_10057007         | 发送者链账户错误                           |
+| MSG_10057008         | 接收者链账户错误                           |
+| MSG_10057009         | 发送者和接受者不在同一算力中心                          |
+| MSG_10057010         | NFT当前状态不可流转                          |
+| MSG_10057011         | NFT当前状态不可销毁                          |
+| MSG_10057012         | 第三方流水号重复                          |
+| MSG_10057100         | 链上交易查询为空                          |
+| MSG_10057200         | 发送者没有该NFT                          |
+| MSG_10057300         | 721发送数量不等于一                          |
+| MSG_10057301         | 发送者和接收者不在同一链框架                         |
+| MSG_10057302         | 链账户和链框架不匹配                         |
+| MSG_10057303         | 链账户和登录用户不匹配                        |
 
 ### 1. API Changelog 
 # 1. API Changelog 
