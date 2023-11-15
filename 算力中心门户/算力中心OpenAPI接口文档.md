@@ -10,7 +10,7 @@
 **联系人**:
 
 
-**Version**:2.2.6
+**Version**:2.3.0
 
 
 **接口路径**:/v3/api-docs
@@ -79,6 +79,7 @@
 |&emsp;&emsp;opbChainType|开放联盟链链类型|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -95,7 +96,8 @@
 		}
 	],
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -180,6 +182,7 @@
 |&emsp;&emsp;tradeCode|算力交易流水号|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -190,7 +193,8 @@
 		"tradeCode": "DDC00000000001"
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -270,6 +274,7 @@
 |&emsp;&emsp;tradeCode|算力交易流水号|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -280,7 +285,8 @@
 		"tradeCode": "DDC00000000001"
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -356,6 +362,7 @@
 |&emsp;&emsp;tradeCode|算力交易流水号|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -366,7 +373,8 @@
 		"tradeCode": "DDC00000000001"
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -456,6 +464,7 @@
 |&emsp;&emsp;platformDdcCode|DDC CODE|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 |resultPageInfo||PageInfo|PageInfo|
 |&emsp;&emsp;firstPage||boolean||
 |&emsp;&emsp;lastPage||boolean||
@@ -484,6 +493,7 @@
 	],
 	"errorLogCode": "0",
 	"message": "0",
+	"portalToken": "portaltoken",
 	"resultPageInfo": {
 		"firstPage": true,
 		"lastPage": true,
@@ -570,6 +580,7 @@
 |&emsp;&emsp;publishQuantity|发行量（只有1155类型有值）|integer(int64)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -589,7 +600,8 @@
 		"publishQuantity": 100
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -674,6 +686,7 @@
 |&emsp;&emsp;txType|交易类型：20=DDC生成  22=DDC流转   23=DDC销毁  |integer(int32)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 |resultPageInfo||PageInfo|PageInfo|
 |&emsp;&emsp;firstPage||boolean||
 |&emsp;&emsp;lastPage||boolean||
@@ -699,6 +712,7 @@
 	],
 	"errorLogCode": "0",
 	"message": "0",
+	"portalToken": "portaltoken",
 	"resultPageInfo": {
 		"firstPage": true,
 		"lastPage": true,
@@ -761,6 +775,7 @@
 |&emsp;&emsp;txType|DDC交易类型：20=生成 22=流转 23=销毁|integer(int32)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -774,7 +789,8 @@
 		}
 	],
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -857,6 +873,7 @@
 |&emsp;&emsp;userTradeCode|用户第三方流水号|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -882,7 +899,8 @@
 		}
 	],
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -915,7 +933,7 @@
 ```javascript
 {
   "opbChainClientName": "test1",
-  "opbChainId": 9
+  "opbChainId": 2
 }
 ```
 
@@ -955,6 +973,7 @@
 |&emsp;&emsp;publicKey|链账户公钥|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -967,7 +986,94 @@
 		"publicKey": "**************"
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
+}
+```
+
+
+## 导入链账户
+
+
+**接口地址**:`/ddcoai/sys/v1/chainaccount/import`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded,application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>导入算力中心支持的开放联盟链框架的链账户</p>
+
+
+
+**请求示例**:
+
+
+```javascript
+{
+  "opbChainClientName": "test1",
+  "opbChainId": 2,
+  "privateKey": "69f39c3e8fe86a9ab0da685a5b254323b92b4d220b8789fcb8fbc349b400cbad"
+}
+```
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|apitoken|apitoken|header|true|string||
+|inOpbChainAccountImport|InOpbChainAccountImport|body|true|InOpbChainAccountImport|InOpbChainAccountImport|
+|&emsp;&emsp;opbChainClientName|链账户名称||true|string||
+|&emsp;&emsp;opbChainId|链框架id||true|integer(int64)||
+|&emsp;&emsp;privateKey|私钥||true|string||
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|ResultInfo«OutChainAccountImport»|
+|201|Created||
+|401|Unauthorized||
+|403|Forbidden||
+|404|Not Found||
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|code|成功：0，失败：-1|integer(int32)|integer(int32)|
+|data||OutChainAccountImport|OutChainAccountImport|
+|&emsp;&emsp;opbChainClientAddress|链账户地址|string||
+|&emsp;&emsp;privateKey|链账户私钥|string||
+|&emsp;&emsp;publicKey|链账户公钥|string||
+|errorLogCode|此标记同时写入到日志文件中，方便查找|string||
+|message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
+
+
+**响应示例**:
+```javascript
+{
+	"code": 0,
+	"data": {
+		"opbChainClientAddress": "0xaaaaaaaaaaaaaaaaaa",
+		"privateKey": "**************",
+		"publicKey": "**************"
+	},
+	"errorLogCode": "0",
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -1053,6 +1159,7 @@
 |&emsp;&emsp;opbChainName|链名称|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 |resultPageInfo||PageInfo|PageInfo|
 |&emsp;&emsp;firstPage||boolean||
 |&emsp;&emsp;lastPage||boolean||
@@ -1079,6 +1186,7 @@
 	],
 	"errorLogCode": "0",
 	"message": "0",
+	"portalToken": "portaltoken",
 	"resultPageInfo": {
 		"firstPage": true,
 		"lastPage": true,
@@ -1152,6 +1260,7 @@
 |&emsp;&emsp;gasQuantity|1算力值对应的能量值|number(bigdecimal)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -1162,7 +1271,8 @@
 		"gasQuantity": 1000000
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -1218,6 +1328,7 @@
 |&emsp;&emsp;eosRam|ram单价 (算力/KB)|number(double)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -1230,7 +1341,8 @@
 		"eosRam": 0.04
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -1301,6 +1413,7 @@
 |&emsp;&emsp;opbChainClientAddress|链账户地址|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -1312,7 +1425,8 @@
 		"opbChainClientAddress": "0xaaaaaaaaaaaaaaaaaa"
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -1389,6 +1503,7 @@
 |&emsp;&emsp;ramPlusValue|充值ram量|number(biginteger)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -1402,7 +1517,8 @@
 		"ramPlusValue": 100
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -1459,6 +1575,7 @@
 |&emsp;&emsp;accessKey|接入key|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -1469,7 +1586,8 @@
 		"accessKey": "a96234234234ea343b233c343423c1960040343242332223326"
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -1523,6 +1641,7 @@
 |&emsp;&emsp;accessKey|更新后的接入Key|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -1533,7 +1652,8 @@
 		"accessKey": "更新后的接入Key"
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -1590,6 +1710,7 @@
 |&emsp;&emsp;accountBalance|账户余额：算力值|number(bigdecimal)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -1600,7 +1721,8 @@
 		"accountBalance": 10
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -1682,6 +1804,7 @@
 |data||object||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -1690,10 +1813,10 @@
 	"code": 0,
 	"data": {},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
-
 
 
 ## NFT生成
@@ -1774,6 +1897,7 @@
 |data||object||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -1782,7 +1906,8 @@
 	"code": 0,
 	"data": {},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -1861,6 +1986,7 @@
 |data||object||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -1869,7 +1995,8 @@
 	"code": 0,
 	"data": {},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -1944,6 +2071,7 @@
 |data||object||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -1952,7 +2080,8 @@
 	"code": 0,
 	"data": {},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -2049,6 +2178,7 @@
 |&emsp;&emsp;tokenType|Token 类型|integer(int32)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 |resultPageInfo||PageInfo|PageInfo|
 |&emsp;&emsp;firstPage||boolean||
 |&emsp;&emsp;lastPage||boolean||
@@ -2078,6 +2208,7 @@
 	],
 	"errorLogCode": "0",
 	"message": "0",
+	"portalToken": "portaltoken",
 	"resultPageInfo": {
 		"firstPage": true,
 		"lastPage": true,
@@ -2164,6 +2295,7 @@
 |&emsp;&emsp;tokenUri|Token uri|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -2183,7 +2315,8 @@
 		"tokenUri": ""
 	},
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -2265,9 +2398,10 @@
 |&emsp;&emsp;receiveAccount|接收者账户|string||
 |&emsp;&emsp;sendAccount|发送者账户|string||
 |&emsp;&emsp;txHash|交易hash|string||
-|&emsp;&emsp;txType|交易类型：40=NFT生成  42=NFT流转   43=NFT销毁  |integer(int32)||
+|&emsp;&emsp;txType|交易类型：20=NFT生成  22=NFT流转   23=NFT销毁  |integer(int32)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 |resultPageInfo||PageInfo|PageInfo|
 |&emsp;&emsp;firstPage||boolean||
 |&emsp;&emsp;lastPage||boolean||
@@ -2288,11 +2422,12 @@
 			"receiveAccount": "0x0000000000000",
 			"sendAccount": "0x0000000000000",
 			"txHash": "0x0000000000000",
-			"txType": 40
+			"txType": 20
 		}
 	],
 	"errorLogCode": "0",
 	"message": "0",
+	"portalToken": "portaltoken",
 	"resultPageInfo": {
 		"firstPage": true,
 		"lastPage": true,
@@ -2352,9 +2487,10 @@
 |code|成功：0，失败：-1|integer(int32)|integer(int32)|
 |data||array|OutNftFeeSearches|
 |&emsp;&emsp;txAmount|NFT交易价格|number(bigdecimal)||
-|&emsp;&emsp;txType|NFT交易类型：40=生成 42=流转 43=销毁|integer(int32)||
+|&emsp;&emsp;txType|NFT交易类型：20=生成 22=流转 23=销毁|integer(int32)||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -2368,7 +2504,8 @@
 		}
 	],
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -2447,10 +2584,11 @@
 |&emsp;&emsp;tradeQuantity|流转数量|integer(int64)||
 |&emsp;&emsp;txHash|交易哈希|string||
 |&emsp;&emsp;txStatus|交易状态：0=处理中 1=成功 2=失败|integer(int32)||
-|&emsp;&emsp;txType|交易类型   40=NFT生成  42=NFT流转   43=NFT销毁|integer(int32)||
+|&emsp;&emsp;txType|交易类型   20=NFT生成  22=NFT流转   23=NFT销毁|integer(int32)||
 |&emsp;&emsp;userTradeCode|用户第三方流水号|string||
 |errorLogCode|此标记同时写入到日志文件中，方便查找|string||
 |message|都是消息编码，前端自行国际化处理|string||
+|portalToken|凭此token可以访问共享接口，返回空则表示无法使用|string||
 
 
 **响应示例**:
@@ -2476,7 +2614,8 @@
 		}
 	],
 	"errorLogCode": "0",
-	"message": "0"
+	"message": "0",
+	"portalToken": "portaltoken"
 }
 ```
 
@@ -2577,3 +2716,5 @@
 ##  V2.2.6 Release in progress
 增加NFT生成-附件上传Url接口
 算力中心OpenAPI免费NFT接口性能优化改造
+##  V2.3.0 Release in progress
+算力中心增加通过API导入链账户

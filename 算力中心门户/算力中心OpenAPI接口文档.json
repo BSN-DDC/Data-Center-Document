@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "算力中心OpenAPI",
-    "version": "2.2.6"
+    "version": "2.3.0"
   },
   "servers": [
     {
@@ -142,6 +142,63 @@
         },
         "extensions": {
           "x-order": "1"
+        }
+      }
+    },
+    "/ddcoai/sys/v1/chainaccount/import": {
+      "post": {
+        "tags": [
+          "2-链账户管理"
+        ],
+        "summary": "导入链账户",
+        "description": "导入算力中心支持的开放联盟链框架的链账户",
+        "operationId": "importChainAccountUsingPOST",
+        "parameters": [
+          {
+            "name": "apitoken",
+            "in": "header",
+            "description": "apitoken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InOpbChainAccountImport"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultInfo«OutChainAccountImport»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "extensions": {
+          "x-order": "2"
         }
       }
     },
@@ -2198,13 +2255,43 @@
           },
           "txType": {
             "type": "integer",
-            "description": "交易类型   20=NFT生成  22=NFT流转   23=NFT销毁",
+            "description": "交易类型   40=NFT生成  42=NFT流转   43=NFT销毁",
             "format": "int32",
             "refType": null
           },
           "userTradeCode": {
             "type": "string",
             "description": "用户第三方流水号",
+            "refType": null
+          }
+        }
+      },
+      "InOpbChainAccountImport": {
+        "title": "InOpbChainAccountImport",
+        "required": [
+          "opbChainClientName",
+          "opbChainId",
+          "privateKey"
+        ],
+        "type": "object",
+        "properties": {
+          "opbChainClientName": {
+            "type": "string",
+            "description": "链账户名称",
+            "example": "test1",
+            "refType": null
+          },
+          "opbChainId": {
+            "type": "integer",
+            "description": "链框架id",
+            "format": "int64",
+            "example": 2,
+            "refType": null
+          },
+          "privateKey": {
+            "type": "string",
+            "description": "私钥",
+            "example": "69f39c3e8fe86a9ab0da685a5b254323b92b4d220b8789fcb8fbc349b400cbad",
             "refType": null
           }
         }
@@ -2227,7 +2314,7 @@
             "type": "integer",
             "description": "链框架id",
             "format": "int64",
-            "example": 9,
+            "example": 2,
             "refType": null
           }
         }
@@ -2360,6 +2447,35 @@
             "type": "string",
             "description": "接入key",
             "example": "a96234234234ea343b233c343423c1960040343242332223326",
+            "refType": null
+          }
+        }
+      },
+      "OutChainAccountImport": {
+        "title": "OutChainAccountImport",
+        "required": [
+          "opbChainClientAddress",
+          "privateKey",
+          "publicKey"
+        ],
+        "type": "object",
+        "properties": {
+          "opbChainClientAddress": {
+            "type": "string",
+            "description": "链账户地址",
+            "example": "0xaaaaaaaaaaaaaaaaaa",
+            "refType": null
+          },
+          "privateKey": {
+            "type": "string",
+            "description": "链账户私钥",
+            "example": "**************",
+            "refType": null
+          },
+          "publicKey": {
+            "type": "string",
+            "description": "链账户公钥",
+            "example": "**************",
             "refType": null
           }
         }
@@ -3445,6 +3561,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -3478,6 +3599,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           },
           "resultPageInfo": {
             "$ref": "#/components/schemas/PageInfo"
@@ -3515,6 +3641,11 @@
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
           },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
+          },
           "resultPageInfo": {
             "$ref": "#/components/schemas/PageInfo"
           }
@@ -3550,6 +3681,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           },
           "resultPageInfo": {
             "$ref": "#/components/schemas/PageInfo"
@@ -3587,6 +3723,11 @@
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
           },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
+          },
           "resultPageInfo": {
             "$ref": "#/components/schemas/PageInfo"
           }
@@ -3623,6 +3764,11 @@
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
           },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
+          },
           "resultPageInfo": {
             "$ref": "#/components/schemas/PageInfo"
           }
@@ -3658,6 +3804,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -3691,6 +3842,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -3724,6 +3880,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -3757,6 +3918,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -3790,6 +3956,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -3820,6 +3991,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -3850,6 +4026,46 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
+          }
+        }
+      },
+      "ResultInfo«OutChainAccountImport»": {
+        "title": "ResultInfo«OutChainAccountImport»",
+        "required": [
+          "code",
+          "errorLogCode",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "成功：0，失败：-1",
+            "format": "int32",
+            "example": 0
+          },
+          "data": {
+            "$ref": "#/components/schemas/OutChainAccountImport"
+          },
+          "errorLogCode": {
+            "type": "string",
+            "description": "此标记同时写入到日志文件中，方便查找",
+            "example": "0"
+          },
+          "message": {
+            "type": "string",
+            "description": "都是消息编码，前端自行国际化处理",
+            "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -3880,6 +4096,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -3910,6 +4131,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -3940,6 +4166,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -3970,6 +4201,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -4000,6 +4236,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -4030,6 +4271,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -4060,6 +4306,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -4090,6 +4341,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       },
@@ -4120,6 +4376,11 @@
             "type": "string",
             "description": "都是消息编码，前端自行国际化处理",
             "example": "0"
+          },
+          "portalToken": {
+            "type": "string",
+            "description": "凭此token可以访问共享接口，返回空则表示无法使用",
+            "example": "portaltoken"
           }
         }
       }
@@ -4136,7 +4397,7 @@
           },
           {
             "title": "1. API Changelog ",
-            "content": "# 1. API Changelog \r\n\r\n---\r\n##  V1.0.1 Release in progress\r\n算力中心全新版本\r\n##  V2.2.6 Release in progress\r\n增加NFT生成-附件上传Url接口\r\n算力中心OpenAPI免费NFT接口性能优化改造\r\n"
+            "content": "# 1. API Changelog \r\n\r\n---\r\n##  V1.0.1 Release in progress\r\n算力中心全新版本\r\n##  V2.2.6 Release in progress\r\n增加NFT生成-附件上传Url接口\r\n算力中心OpenAPI免费NFT接口性能优化改造\r\n##  V2.3.0 Release in progress\r\n算力中心增加通过API导入链账户\r\n"
           }
         ]
       }
